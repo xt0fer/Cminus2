@@ -1,6 +1,8 @@
 /* Cminus */
 grammar Cminus2;
 
+// Parser Rules (things that start with lowercase letters)
+
 program
     : mainFunction functionList?
     ;
@@ -28,32 +30,11 @@ declarationList
     |   declarationList declaration
     ;
 
-// statement
-//     :   compoundStatement
-// //    |   expressionStatement
-//     |   selectionStatement
-//     |   iterationStatement
-//     |   jumpStatement
-//     |   assignmentStatement
-//     ;
-
 variable : Identifier ;
-
-// assignmentStatement
-//     : variable assignmentOperator exp Semi
-//     ;
-
-// assignmentOperator
-//     :   Assign // | '*=' | '/=' | '%=' | '+=' | '-=' | '<<=' | '>>=' | '&=' | '^=' | '|='
-//     ;
 
 compoundStatement
     :   LeftBrace declarationList? statementList? RightBrace
     ;
-
-// declaration
-//     : Var variable Assign typeSpecifier Paren Constant Thesis Semi
-//     ;
 
 ifStatement
     :   If Paren exp Thesis compoundStatement (Else compoundStatement)?
@@ -63,36 +44,10 @@ whileStatement
     :   While Paren exp Thesis compoundStatement
     ;
 
-// expression 
-//     : functionCall
-//     | Minus expression     
-//     | Paren expression Thesis
-// //    | expression Caret expression
-//     | expression mulop expression 
-//     | expression addop expression 
-//     | Constant
-//     | variable
-//     | expression relop expression
-//     ;
-
-// addop : Plus | Minus ;
-
-// mulop : Star | Div | Mod ;
-// relop : EqualEqual
-//     | NotEqual
-//     | Less
-//     | LessEqual
-//     | Greater
-//     | GreaterEqual
-//     ;
-
 typeSpecifier
     :   Int
     |   Rune
     | typeSpecifier LeftBracket exp RightBracket // array type
-    // |   Void
-    // |   StringType
-    // |   Bool
     ;
 
 declaration
@@ -148,18 +103,7 @@ pars
     | 
     ;
 
-// var
-//     : INDENTIFIER
-//     ;
-
-// |INT|**int**|IF|**if**|ELSE|**else**|NEQUAL|**!=**|
-// |RETURN|**return**| Paren|(| Thesis|)| LeftBrace|{|
-// |RightBrace|}|LeftBracket|[|RightBracket|]|Assign|=|
-// |Semi|;|Comma|,|Plus|+|Minus|-|
-// |Star|*|Div|/|Equal|==|Rune|**rune**|
-// |WRITE|**write**|READ|**read**|GREATER|**>**|LESS|**<**|
-// |NOT|**!**|LENGTH|**length**|WHILE|**while**|WHILE|**while**|
-
+// Lexer Tokens (things which start with Uppercase Letter)
 
 Length : 'len';
 Else : 'else';
