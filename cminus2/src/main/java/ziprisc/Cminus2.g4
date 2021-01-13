@@ -1,4 +1,6 @@
 /* Cminus */
+/* antlr4 -package "ziprisc.parser" -o parser Cminus2.g4 */
+
 grammar Cminus2;
 
 // Parser Rules (things that start with lowercase letters)
@@ -58,7 +60,7 @@ statement
 	: If  Paren exp  Thesis compoundStatement
     | If  Paren exp  Thesis compoundStatement Else compoundStatement
     | While  Paren exp  Thesis compoundStatement
-    | lexp Assign exp
+    | lexp Assign exp Semi
     | Return exp 
     | Identifier  Paren pars  Thesis    // function call
     | compoundStatement
