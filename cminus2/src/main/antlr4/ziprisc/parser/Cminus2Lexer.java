@@ -1,5 +1,5 @@
-// Generated from Cminus2.g4 by ANTLR 4.7.2
-package ziprisc.parser;
+// Generated from /Volumes/DeVere/kristofer/Documents/Projects/Cminus2/cminus2/src/main/antlr4/Cminus2.g4 by ANTLR 4.9
+package antlr4.ziprisc.parser;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -11,7 +11,7 @@ import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class Cminus2Lexer extends Lexer {
-	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.9", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =

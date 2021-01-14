@@ -1,5 +1,5 @@
-// Generated from Cminus2.g4 by ANTLR 4.7.2
-package ziprisc.parser;
+// Generated from /Volumes/DeVere/kristofer/Documents/Projects/Cminus2/cminus2/src/main/antlr4/Cminus2.g4 by ANTLR 4.9
+package antlr4.ziprisc.parser;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;

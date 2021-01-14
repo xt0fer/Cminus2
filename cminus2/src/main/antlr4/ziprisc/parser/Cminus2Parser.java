@@ -1,5 +1,5 @@
-// Generated from Cminus2.g4 by ANTLR 4.7.2
-package ziprisc.parser;
+// Generated from /Volumes/DeVere/kristofer/Documents/Projects/Cminus2/cminus2/src/main/antlr4/Cminus2.g4 by ANTLR 4.9
+package antlr4.ziprisc.parser;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class Cminus2Parser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.9", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -115,6 +115,7 @@ public class Cminus2Parser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
+
 	public static class ProgramContext extends ParserRuleContext {
 		public MainFunctionContext mainFunction() {
 			return getRuleContext(MainFunctionContext.class,0);
@@ -133,6 +134,11 @@ public class Cminus2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitProgram(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitProgram(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -186,6 +192,11 @@ public class Cminus2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitFunctionList(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitFunctionList(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -264,6 +275,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitMainFunction(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitMainFunction(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final MainFunctionContext mainFunction() throws RecognitionException {
@@ -320,6 +336,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitFunctionDefinition(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitFunctionDefinition(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final FunctionDefinitionContext functionDefinition() throws RecognitionException {
@@ -371,6 +392,11 @@ public class Cminus2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitStatementList(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitStatementList(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -448,6 +474,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitDeclarationList(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitDeclarationList(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DeclarationListContext declarationList() throws RecognitionException {
@@ -519,6 +550,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitVariable(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitVariable(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final VariableContext variable() throws RecognitionException {
@@ -562,6 +598,11 @@ public class Cminus2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitCompoundStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitCompoundStatement(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -635,6 +676,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitIfStatement(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitIfStatement(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final IfStatementContext ifStatement() throws RecognitionException {
@@ -700,6 +746,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitWhileStatement(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitWhileStatement(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final WhileStatementContext whileStatement() throws RecognitionException {
@@ -752,6 +803,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitAssignStatement(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitAssignStatement(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final AssignStatementContext assignStatement() throws RecognitionException {
@@ -799,6 +855,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitReturnStatement(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitReturnStatement(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ReturnStatementContext returnStatement() throws RecognitionException {
@@ -844,6 +905,11 @@ public class Cminus2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitFunctionCall(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitFunctionCall(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -896,6 +962,11 @@ public class Cminus2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitTypeSpecifier(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitTypeSpecifier(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -990,6 +1061,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitDeclaration(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitDeclaration(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DeclarationContext declaration() throws RecognitionException {
@@ -1055,6 +1131,11 @@ public class Cminus2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitStatement(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1160,6 +1241,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitLexp(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitLexp(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final LexpContext lexp() throws RecognitionException {
@@ -1253,6 +1339,11 @@ public class Cminus2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitExp(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitExp(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1381,6 +1472,11 @@ public class Cminus2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitBinop(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitBinop(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final BinopContext binop() throws RecognitionException {
@@ -1427,6 +1523,11 @@ public class Cminus2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitUnop(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitUnop(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1486,6 +1587,11 @@ public class Cminus2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitPars(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitPars(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

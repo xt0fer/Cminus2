@@ -1,8 +1,8 @@
-package ziprisc;
+package java.ziprisc;
 
 import java.util.HashSet;
 
-class Scope extends HashSet<String> {
+public class Scope extends HashSet<String> {
 
     /**
      *
