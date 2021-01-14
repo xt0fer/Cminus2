@@ -105,7 +105,7 @@ Semi
 Comma
 Quote
 Identifier
-DigitSequence
+Number
 QRune
 Qstr
 Whitespace
@@ -164,7 +164,7 @@ Identifier
 IdentifierNondigit
 Nondigit
 Digit
-DigitSequence
+Number
 QRune
 Qstr
 Whitespace

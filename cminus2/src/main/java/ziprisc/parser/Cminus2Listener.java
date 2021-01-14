@@ -108,6 +108,36 @@ public interface Cminus2Listener extends ParseTreeListener {
 	 */
 	void exitWhileStatement(Cminus2Parser.WhileStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Cminus2Parser#assignStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignStatement(Cminus2Parser.AssignStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Cminus2Parser#assignStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignStatement(Cminus2Parser.AssignStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Cminus2Parser#returnStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturnStatement(Cminus2Parser.ReturnStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Cminus2Parser#returnStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturnStatement(Cminus2Parser.ReturnStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Cminus2Parser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionCall(Cminus2Parser.FunctionCallContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Cminus2Parser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionCall(Cminus2Parser.FunctionCallContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Cminus2Parser#typeSpecifier}.
 	 * @param ctx the parse tree
 	 */

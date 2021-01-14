@@ -46,6 +46,10 @@ whileStatement
     :   While Paren exp Thesis compoundStatement
     ;
 
+assignStatement : lexp Assign exp Semi ;
+returnStatement : Return exp Semi ;
+functionCall : Identifier  Paren pars  Thesis ;
+
 typeSpecifier
     :   Int
     |   Rune
@@ -57,12 +61,11 @@ declaration
     ;
 
 statement
-	: If  Paren exp  Thesis compoundStatement
-    | If  Paren exp  Thesis compoundStatement Else compoundStatement
-    | While  Paren exp  Thesis compoundStatement
-    | lexp Assign exp Semi
-    | Return exp 
-    | Identifier  Paren pars  Thesis    // function call
+	: ifStatement
+    | whileStatement
+    | assignStatement
+    | returnStatement 
+    | functionCall    // function call
     | compoundStatement
     | Write exp
     | Read lexp
@@ -77,9 +80,8 @@ exp
     : lexp
     | exp binop exp    
     | unop exp
-    |  Paren exp  Thesis
-    | DigitSequence 
-    | Identifier  Paren pars  Thesis    // function call
+    | Paren exp Thesis
+    | Number 
     | QRune
     | Length lexp    	// size of an array
     ;
@@ -189,7 +191,7 @@ Digit
     :   [0-9]
     ;
 
-DigitSequence
+Number
     :   Digit+
     ;
 

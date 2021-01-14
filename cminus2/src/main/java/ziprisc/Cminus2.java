@@ -14,15 +14,18 @@ import ziprisc.parser.Cminus2Parser;
  *
  */
 public class Cminus2 {
+    private static final String PROGRAM = "int main() { int i; \ni = 0;\n return i;\n}";
+
     public static void main(String[] args) {
-        String cminusContent = "int main() {\nint i;\n i = 0;\n return 0\n}";
+        String cminusContent = Cminus2.PROGRAM;
         Cminus2Lexer lexer = new Cminus2Lexer(CharStreams.fromString(cminusContent));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         Cminus2Parser parser = new Cminus2Parser(tokens);
-        String[] rules = parser.getRuleNames();
         ParseTree tree = parser.program();
         ParseTreeWalker walker = new ParseTreeWalker();
         Cminus2Listener listener = new Cm2Listener();
         walker.walk(listener, tree);
+        System.out.println(tree.toStringTree(parser)); 
+
     }
 }

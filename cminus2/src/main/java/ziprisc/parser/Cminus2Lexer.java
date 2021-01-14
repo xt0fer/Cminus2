@@ -23,8 +23,8 @@ public class Cminus2Lexer extends Lexer {
 		Less=23, LessEqual=24, Greater=25, GreaterEqual=26, LeftShift=27, RightShift=28, 
 		Plus=29, PlusPlus=30, Minus=31, MinusMinus=32, Star=33, Div=34, Mod=35, 
 		And=36, Or=37, AndAnd=38, OrOr=39, Caret=40, Not=41, Tilde=42, Question=43, 
-		Colon=44, Semi=45, Comma=46, Quote=47, Identifier=48, DigitSequence=49, 
-		QRune=50, Qstr=51, Whitespace=52, Newline=53, LineComment=54;
+		Colon=44, Semi=45, Comma=46, Quote=47, Identifier=48, Number=49, QRune=50, 
+		Qstr=51, Whitespace=52, Newline=53, LineComment=54;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -42,7 +42,7 @@ public class Cminus2Lexer extends Lexer {
 			"Plus", "PlusPlus", "Minus", "MinusMinus", "Star", "Div", "Mod", "And", 
 			"Or", "AndAnd", "OrOr", "Caret", "Not", "Tilde", "Question", "Colon", 
 			"Semi", "Comma", "Quote", "Identifier", "IdentifierNondigit", "Nondigit", 
-			"Digit", "DigitSequence", "QRune", "Qstr", "Whitespace", "Newline", "LineComment"
+			"Digit", "Number", "QRune", "Qstr", "Whitespace", "Newline", "LineComment"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -66,8 +66,8 @@ public class Cminus2Lexer extends Lexer {
 			"Less", "LessEqual", "Greater", "GreaterEqual", "LeftShift", "RightShift", 
 			"Plus", "PlusPlus", "Minus", "MinusMinus", "Star", "Div", "Mod", "And", 
 			"Or", "AndAnd", "OrOr", "Caret", "Not", "Tilde", "Question", "Colon", 
-			"Semi", "Comma", "Quote", "Identifier", "DigitSequence", "QRune", "Qstr", 
-			"Whitespace", "Newline", "LineComment"
+			"Semi", "Comma", "Quote", "Identifier", "Number", "QRune", "Qstr", "Whitespace", 
+			"Newline", "LineComment"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
