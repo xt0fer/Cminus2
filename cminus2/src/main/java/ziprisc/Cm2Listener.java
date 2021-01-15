@@ -35,7 +35,12 @@ import java.util.Stack;
 public class Cm2Listener implements Cminus2Listener {
 
     //private HashMap<String,String> symbol_table = new HashMap<>();
-    
+    private static final boolean DFLAG = false; //debug flag turns on tracing
+    private String xarg0 = "x7";
+    private String xarg1 = "x8";
+    private String xarg2 = "x9";
+    private String xarg3 = "xA";
+
     private Stack<VarScope> scopes;
 
     public Cm2Listener() {
@@ -46,11 +51,11 @@ public class Cm2Listener implements Cminus2Listener {
     private boolean checkVarName(String varName) {
         VarScope scope = scopes.peek();
         if(scope.inScope(varName)) {
-            System.out.println("Var in scope: " + varName);
+            if (DFLAG) System.out.println("# Var in scope: " + varName);
             return true;
         }
         else {
-            System.out.println("Var not in scope: " + varName);
+            if (DFLAG) System.out.println("# Var not in scope: " + varName);
             return false;
         }
     }
@@ -83,23 +88,23 @@ public class Cm2Listener implements Cminus2Listener {
 
     @Override
     public void visitTerminal(TerminalNode node) {
-        emit("// token", node.getSymbol().getText());
+        if (DFLAG) emit("# token", node.getSymbol().getText());
     }
 
     @Override
     public void visitErrorNode(ErrorNode node) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void enterEveryRule(ParserRuleContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
     }
 
     @Override
     public void exitEveryRule(ParserRuleContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
@@ -111,21 +116,21 @@ public class Cm2Listener implements Cminus2Listener {
 
     @Override
     public void exitProgram(ProgramContext ctx) {
-        System.err.print("");
-        emit("// exit program");
-        this.emitI("POP", "x8");
-        this.emitI("OUT", "x8");
+        if (DFLAG) System.out.print("");
+        if (DFLAG) emit("# exit");
+        this.emitI("POP", xarg1);
+        this.emitI("OUT", xarg1);
         this.emitI("HLT");
     }
 
     public void enterFunctionList(FunctionListContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void exitFunctionList(FunctionListContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
@@ -156,209 +161,212 @@ public class Cm2Listener implements Cminus2Listener {
 
     @Override
     public void enterStatementList(StatementListContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void exitStatementList(StatementListContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void enterDeclarationList(DeclarationListContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void exitDeclarationList(DeclarationListContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void enterVariable(VariableContext ctx) {
-        System.err.println(">variable");
+        if (DFLAG) System.out.println(">variable");
     }
 
     @Override
     public void exitVariable(VariableContext ctx) {
-        String varName = ctx.Identifier().getText();
-        VarScope scope = scopes.peek();
-        scope.add(varName);
-        System.err.println("<variable");
+        if (DFLAG) System.out.println("<variable");
 
     }
 
     @Override
     public void enterCompoundStatement(CompoundStatementContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void exitCompoundStatement(CompoundStatementContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void enterIfStatement(IfStatementContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void exitIfStatement(IfStatementContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void enterWhileStatement(WhileStatementContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void exitWhileStatement(WhileStatementContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void enterTypeSpecifier(TypeSpecifierContext ctx) {
-        emit("// TypeSpecifier", ctx.getText());
+        if (DFLAG) emit("// TypeSpecifier", ctx.getText());
 
     }
 
     @Override
     public void exitTypeSpecifier(TypeSpecifierContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void enterDeclaration(DeclarationContext ctx) {
-        System.err.println(">declaration");
+        if (DFLAG) System.out.println(">declaration");
+        String varName = ctx.Identifier().getText();
+        VarScope scope = scopes.peek();
+        scope.add(varName);
     }
 
     @Override
     public void exitDeclaration(DeclarationContext ctx) {
-        System.err.println("<declaration");
+        if (DFLAG) System.out.println("<declaration");
 
     }
 
     @Override
     public void enterStatement(StatementContext ctx) {
-        System.err.println(">statement");
+        if (DFLAG) System.out.println(">statement");
     }
 
     @Override
     public void exitStatement(StatementContext ctx) {
-        System.err.println("<statement");
+        if (DFLAG) System.out.println("<statement");
 
     }
 
     @Override
     public void enterLexp(LexpContext ctx) {
-        System.err.println(">lexp");
+        if (DFLAG) System.out.println(">lexp");
     }
 
     @Override
     public void exitLexp(LexpContext ctx) {
-        System.err.println("<lexp");
+        if (DFLAG) System.out.println("<lexp");
         String vart = ctx.getText();
         if (checkVarName(vart)) {
-            emitI("LD", "x7", vart);
-            emitI("PUSH", "x7");
+            emitI("LD", xarg0, vart);
+            emitI("PUSH", xarg0);
         }
     }
 
     @Override
     public void enterExp(ExpContext ctx) {
-        System.err.println(">exp");
+        if (DFLAG) System.out.println(">exp");
     }
 
     @Override
     public void exitExp(ExpContext ctx) {
-        System.err.println("<exp");
+        if (DFLAG) System.out.println("<exp");
         String foo = ctx.getText();
-        this.emitI("LDI", "x7", foo);
-        this.emitI("PUSH", "x7");
+        this.emitI("LDI", xarg0, foo);
+        this.emitI("PUSH", xarg0);
 
     }
 
     @Override
     public void enterBinop(BinopContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void exitBinop(BinopContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void enterUnop(UnopContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void exitUnop(UnopContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void enterPars(ParsContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void exitPars(ParsContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void enterAssignStatement(AssignStatementContext ctx) {
-        System.err.println(">assignment");
+        if (DFLAG) System.out.println(">assignment");
     }
 
     @Override
     public void exitAssignStatement(AssignStatementContext ctx) {
-        System.err.println("<assignment");
+        if (DFLAG) System.out.println("<assignment");
+        emitI("POP", xarg1);
+        emitI("POP", xarg2);
+        emitI("STR", xarg1, xarg2);
 
     }
 
     @Override
     public void enterReturnStatement(ReturnStatementContext ctx) {
-        System.err.println(">return");
+        if (DFLAG) System.out.println(">return");
 
     }
 
     @Override
     public void exitReturnStatement(ReturnStatementContext ctx) {
-        System.err.println("<return");
+        if (DFLAG) System.out.println("<return");
 
     }
 
     @Override
     public void enterFunctionCall(FunctionCallContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
     @Override
     public void exitFunctionCall(FunctionCallContext ctx) {
-        System.err.print("");
+        if (DFLAG) System.out.print("");
 
     }
 
