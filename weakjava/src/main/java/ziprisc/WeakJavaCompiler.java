@@ -1,29 +1,29 @@
 package ziprisc;
 
-import antlr4.ziprisc.Cminus2Lexer;
-import antlr4.ziprisc.Cminus2Parser;
+import antlr4.ziprisc.WeakJavaLexer;
+import antlr4.ziprisc.WeakJavaParser;
 
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
 
 /**
  * Hello world!
  *
  */
-public class Cminus2 {
-    private static final String PROGRAM = "int main() { int i; \ni = 0;\n return i;\n}";
+public class WeakJavaCompiler {
+    private static final String PROGRAM = "class Project { \nint main() { int i; \ni = 0;\n return i;\n}\n}";
 
     public static void main(String[] args) {
-        String cminusContent = Cminus2.PROGRAM;
-        Cminus2Lexer lexer = new Cminus2Lexer(CharStreams.fromString(cminusContent));
+        String cminusContent = WeakJavaCompiler.PROGRAM;
+        WeakJavaLexer lexer = new WeakJavaLexer(CharStreams.fromString(cminusContent));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-        Cminus2Parser parser = new Cminus2Parser(tokens);
+        WeakJavaParser parser = new WeakJavaParser(tokens);
         ParseTree tree = parser.program();
         ParseTreeWalker walker = new ParseTreeWalker();
-        ziprisc.Cm2Listener listener = new ziprisc.Cm2Listener();
+        WJListener listener = new WJListener();
         walker.walk(listener, tree);
         System.out.println(tree.toStringTree(parser));
 

@@ -1,4 +1,4 @@
-// Generated from /Volumes/DeVere/kristofer/Documents/Projects/Cminus2/cminus2/src/main/antlr4/ziprisc/Cminus2.g4 by ANTLR 4.9
+// Generated from /Volumes/DeVere/kristofer/Documents/Projects/WeakJava/weakjava/src/main/antlr4/ziprisc/WeakJava.g4 by ANTLR 4.9
 package antlr4.ziprisc;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -6,263 +6,275 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link Cminus2Listener},
+ * This class provides an empty implementation of {@link WeakJavaListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class Cminus2BaseListener implements Cminus2Listener {
+public class WeakJavaBaseListener implements WeakJavaListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProgram(Cminus2Parser.ProgramContext ctx) { }
+	@Override public void enterProgram(WeakJavaParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProgram(Cminus2Parser.ProgramContext ctx) { }
+	@Override public void exitProgram(WeakJavaParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionList(Cminus2Parser.FunctionListContext ctx) { }
+	@Override public void enterProject(WeakJavaParser.ProjectContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionList(Cminus2Parser.FunctionListContext ctx) { }
+	@Override public void exitProject(WeakJavaParser.ProjectContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMainFunction(Cminus2Parser.MainFunctionContext ctx) { }
+	@Override public void enterFunctionList(WeakJavaParser.FunctionListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMainFunction(Cminus2Parser.MainFunctionContext ctx) { }
+	@Override public void exitFunctionList(WeakJavaParser.FunctionListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionDefinition(Cminus2Parser.FunctionDefinitionContext ctx) { }
+	@Override public void enterMainFunction(WeakJavaParser.MainFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionDefinition(Cminus2Parser.FunctionDefinitionContext ctx) { }
+	@Override public void exitMainFunction(WeakJavaParser.MainFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatementList(Cminus2Parser.StatementListContext ctx) { }
+	@Override public void enterFunctionDefinition(WeakJavaParser.FunctionDefinitionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStatementList(Cminus2Parser.StatementListContext ctx) { }
+	@Override public void exitFunctionDefinition(WeakJavaParser.FunctionDefinitionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclarationList(Cminus2Parser.DeclarationListContext ctx) { }
+	@Override public void enterStatementList(WeakJavaParser.StatementListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDeclarationList(Cminus2Parser.DeclarationListContext ctx) { }
+	@Override public void exitStatementList(WeakJavaParser.StatementListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariable(Cminus2Parser.VariableContext ctx) { }
+	@Override public void enterDeclarationList(WeakJavaParser.DeclarationListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariable(Cminus2Parser.VariableContext ctx) { }
+	@Override public void exitDeclarationList(WeakJavaParser.DeclarationListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCompoundStatement(Cminus2Parser.CompoundStatementContext ctx) { }
+	@Override public void enterVariable(WeakJavaParser.VariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCompoundStatement(Cminus2Parser.CompoundStatementContext ctx) { }
+	@Override public void exitVariable(WeakJavaParser.VariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfStatement(Cminus2Parser.IfStatementContext ctx) { }
+	@Override public void enterCompoundStatement(WeakJavaParser.CompoundStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIfStatement(Cminus2Parser.IfStatementContext ctx) { }
+	@Override public void exitCompoundStatement(WeakJavaParser.CompoundStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhileStatement(Cminus2Parser.WhileStatementContext ctx) { }
+	@Override public void enterIfStatement(WeakJavaParser.IfStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWhileStatement(Cminus2Parser.WhileStatementContext ctx) { }
+	@Override public void exitIfStatement(WeakJavaParser.IfStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssignStatement(Cminus2Parser.AssignStatementContext ctx) { }
+	@Override public void enterWhileStatement(WeakJavaParser.WhileStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAssignStatement(Cminus2Parser.AssignStatementContext ctx) { }
+	@Override public void exitWhileStatement(WeakJavaParser.WhileStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReturnStatement(Cminus2Parser.ReturnStatementContext ctx) { }
+	@Override public void enterAssignStatement(WeakJavaParser.AssignStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturnStatement(Cminus2Parser.ReturnStatementContext ctx) { }
+	@Override public void exitAssignStatement(WeakJavaParser.AssignStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionCall(Cminus2Parser.FunctionCallContext ctx) { }
+	@Override public void enterReturnStatement(WeakJavaParser.ReturnStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionCall(Cminus2Parser.FunctionCallContext ctx) { }
+	@Override public void exitReturnStatement(WeakJavaParser.ReturnStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTypeSpecifier(Cminus2Parser.TypeSpecifierContext ctx) { }
+	@Override public void enterFunctionCall(WeakJavaParser.FunctionCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTypeSpecifier(Cminus2Parser.TypeSpecifierContext ctx) { }
+	@Override public void exitFunctionCall(WeakJavaParser.FunctionCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclaration(Cminus2Parser.DeclarationContext ctx) { }
+	@Override public void enterTypeSpecifier(WeakJavaParser.TypeSpecifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDeclaration(Cminus2Parser.DeclarationContext ctx) { }
+	@Override public void exitTypeSpecifier(WeakJavaParser.TypeSpecifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatement(Cminus2Parser.StatementContext ctx) { }
+	@Override public void enterDeclaration(WeakJavaParser.DeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStatement(Cminus2Parser.StatementContext ctx) { }
+	@Override public void exitDeclaration(WeakJavaParser.DeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLexp(Cminus2Parser.LexpContext ctx) { }
+	@Override public void enterStatement(WeakJavaParser.StatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLexp(Cminus2Parser.LexpContext ctx) { }
+	@Override public void exitStatement(WeakJavaParser.StatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExp(Cminus2Parser.ExpContext ctx) { }
+	@Override public void enterLexp(WeakJavaParser.LexpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExp(Cminus2Parser.ExpContext ctx) { }
+	@Override public void exitLexp(WeakJavaParser.LexpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBinop(Cminus2Parser.BinopContext ctx) { }
+	@Override public void enterExp(WeakJavaParser.ExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBinop(Cminus2Parser.BinopContext ctx) { }
+	@Override public void exitExp(WeakJavaParser.ExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUnop(Cminus2Parser.UnopContext ctx) { }
+	@Override public void enterBinop(WeakJavaParser.BinopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUnop(Cminus2Parser.UnopContext ctx) { }
+	@Override public void exitBinop(WeakJavaParser.BinopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPars(Cminus2Parser.ParsContext ctx) { }
+	@Override public void enterUnop(WeakJavaParser.UnopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPars(Cminus2Parser.ParsContext ctx) { }
+	@Override public void exitUnop(WeakJavaParser.UnopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPars(WeakJavaParser.ParsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPars(WeakJavaParser.ParsContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

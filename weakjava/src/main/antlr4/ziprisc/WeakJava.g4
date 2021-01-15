@@ -1,12 +1,14 @@
 /* Cminus */
-/* antlr4 -package "ziprisc.parser" -o parser Cminus2.g4 */
+/* antlr4 -package "ziprisc.parser" -o parser WeakJava.g4 */
 
-grammar Cminus2;
+grammar WeakJava;
 
 // Parser Rules (things that start with lowercase letters)
 
-program
-    : mainFunction functionList?
+program : project ;
+
+project
+    : Class Project LeftBrace mainFunction functionList? RightBrace
     ;
     
 functionList
@@ -122,6 +124,8 @@ Func : 'function';
 Main : 'main';
 Read : 'read';
 Write : 'write';
+Class : 'class';
+Project : 'Project';
 
 Assign : '=';
 EqualEqual : '==';

@@ -1,4 +1,4 @@
-// Generated from /Volumes/DeVere/kristofer/Documents/Projects/Cminus2/cminus2/src/main/antlr4/ziprisc/Cminus2.g4 by ANTLR 4.9
+// Generated from /Volumes/DeVere/kristofer/Documents/Projects/WeakJava/weakjava/src/main/antlr4/ziprisc/WeakJava.g4 by ANTLR 4.9
 package antlr4.ziprisc;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class Cminus2Parser extends Parser {
+public class WeakJavaParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.9", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -18,26 +18,28 @@ public class Cminus2Parser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		Length=1, Else=2, If=3, Int=4, String=5, Rune=6, Array=7, Return=8, While=9, 
-		Func=10, Main=11, Read=12, Write=13, Assign=14, EqualEqual=15, NotEqual=16, 
-		Paren=17, Thesis=18, LeftBracket=19, RightBracket=20, LeftBrace=21, RightBrace=22, 
-		Less=23, LessEqual=24, Greater=25, GreaterEqual=26, LeftShift=27, RightShift=28, 
-		Plus=29, PlusPlus=30, Minus=31, MinusMinus=32, Star=33, Div=34, Mod=35, 
-		And=36, Or=37, AndAnd=38, OrOr=39, Caret=40, Not=41, Tilde=42, Question=43, 
-		Colon=44, Semi=45, Comma=46, Quote=47, Identifier=48, Number=49, QRune=50, 
-		Qstr=51, Whitespace=52, Newline=53, LineComment=54;
+		Func=10, Main=11, Read=12, Write=13, Class=14, Project=15, Assign=16, 
+		EqualEqual=17, NotEqual=18, Paren=19, Thesis=20, LeftBracket=21, RightBracket=22, 
+		LeftBrace=23, RightBrace=24, Less=25, LessEqual=26, Greater=27, GreaterEqual=28, 
+		LeftShift=29, RightShift=30, Plus=31, PlusPlus=32, Minus=33, MinusMinus=34, 
+		Star=35, Div=36, Mod=37, And=38, Or=39, AndAnd=40, OrOr=41, Caret=42, 
+		Not=43, Tilde=44, Question=45, Colon=46, Semi=47, Comma=48, Quote=49, 
+		Identifier=50, Number=51, QRune=52, Qstr=53, Whitespace=54, Newline=55, 
+		LineComment=56;
 	public static final int
-		RULE_program = 0, RULE_functionList = 1, RULE_mainFunction = 2, RULE_functionDefinition = 3, 
-		RULE_statementList = 4, RULE_declarationList = 5, RULE_variable = 6, RULE_compoundStatement = 7, 
-		RULE_ifStatement = 8, RULE_whileStatement = 9, RULE_assignStatement = 10, 
-		RULE_returnStatement = 11, RULE_functionCall = 12, RULE_typeSpecifier = 13, 
-		RULE_declaration = 14, RULE_statement = 15, RULE_lexp = 16, RULE_exp = 17, 
-		RULE_binop = 18, RULE_unop = 19, RULE_pars = 20;
+		RULE_program = 0, RULE_project = 1, RULE_functionList = 2, RULE_mainFunction = 3, 
+		RULE_functionDefinition = 4, RULE_statementList = 5, RULE_declarationList = 6, 
+		RULE_variable = 7, RULE_compoundStatement = 8, RULE_ifStatement = 9, RULE_whileStatement = 10, 
+		RULE_assignStatement = 11, RULE_returnStatement = 12, RULE_functionCall = 13, 
+		RULE_typeSpecifier = 14, RULE_declaration = 15, RULE_statement = 16, RULE_lexp = 17, 
+		RULE_exp = 18, RULE_binop = 19, RULE_unop = 20, RULE_pars = 21;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"program", "functionList", "mainFunction", "functionDefinition", "statementList", 
-			"declarationList", "variable", "compoundStatement", "ifStatement", "whileStatement", 
-			"assignStatement", "returnStatement", "functionCall", "typeSpecifier", 
-			"declaration", "statement", "lexp", "exp", "binop", "unop", "pars"
+			"program", "project", "functionList", "mainFunction", "functionDefinition", 
+			"statementList", "declarationList", "variable", "compoundStatement", 
+			"ifStatement", "whileStatement", "assignStatement", "returnStatement", 
+			"functionCall", "typeSpecifier", "declaration", "statement", "lexp", 
+			"exp", "binop", "unop", "pars"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -45,24 +47,24 @@ public class Cminus2Parser extends Parser {
 	private static String[] makeLiteralNames() {
 		return new String[] {
 			null, "'len'", "'else'", "'if'", "'int'", "'string'", "'rune'", "'array'", 
-			"'return'", "'while'", "'function'", "'main'", "'read'", "'write'", "'='", 
-			"'=='", "'!='", "'('", "')'", "'['", "']'", "'{'", "'}'", "'<'", "'<='", 
-			"'>'", "'>='", "'<<'", "'>>'", "'+'", "'++'", "'-'", "'--'", "'*'", "'/'", 
-			"'%'", "'&'", "'|'", "'&&'", "'||'", "'^'", "'!'", "'~'", "'?'", "':'", 
-			"';'", "','", "'''"
+			"'return'", "'while'", "'function'", "'main'", "'read'", "'write'", "'class'", 
+			"'Project'", "'='", "'=='", "'!='", "'('", "')'", "'['", "']'", "'{'", 
+			"'}'", "'<'", "'<='", "'>'", "'>='", "'<<'", "'>>'", "'+'", "'++'", "'-'", 
+			"'--'", "'*'", "'/'", "'%'", "'&'", "'|'", "'&&'", "'||'", "'^'", "'!'", 
+			"'~'", "'?'", "':'", "';'", "','", "'''"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "Length", "Else", "If", "Int", "String", "Rune", "Array", "Return", 
-			"While", "Func", "Main", "Read", "Write", "Assign", "EqualEqual", "NotEqual", 
-			"Paren", "Thesis", "LeftBracket", "RightBracket", "LeftBrace", "RightBrace", 
-			"Less", "LessEqual", "Greater", "GreaterEqual", "LeftShift", "RightShift", 
-			"Plus", "PlusPlus", "Minus", "MinusMinus", "Star", "Div", "Mod", "And", 
-			"Or", "AndAnd", "OrOr", "Caret", "Not", "Tilde", "Question", "Colon", 
-			"Semi", "Comma", "Quote", "Identifier", "Number", "QRune", "Qstr", "Whitespace", 
-			"Newline", "LineComment"
+			"While", "Func", "Main", "Read", "Write", "Class", "Project", "Assign", 
+			"EqualEqual", "NotEqual", "Paren", "Thesis", "LeftBracket", "RightBracket", 
+			"LeftBrace", "RightBrace", "Less", "LessEqual", "Greater", "GreaterEqual", 
+			"LeftShift", "RightShift", "Plus", "PlusPlus", "Minus", "MinusMinus", 
+			"Star", "Div", "Mod", "And", "Or", "AndAnd", "OrOr", "Caret", "Not", 
+			"Tilde", "Question", "Colon", "Semi", "Comma", "Quote", "Identifier", 
+			"Number", "QRune", "Qstr", "Whitespace", "Newline", "LineComment"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -100,7 +102,7 @@ public class Cminus2Parser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Cminus2.g4"; }
+	public String getGrammarFileName() { return "WeakJava.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -111,17 +113,14 @@ public class Cminus2Parser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public Cminus2Parser(TokenStream input) {
+	public WeakJavaParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	public static class ProgramContext extends ParserRuleContext {
-		public MainFunctionContext mainFunction() {
-			return getRuleContext(MainFunctionContext.class,0);
-		}
-		public FunctionListContext functionList() {
-			return getRuleContext(FunctionListContext.class,0);
+		public ProjectContext project() {
+			return getRuleContext(ProjectContext.class,0);
 		}
 		public ProgramContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -129,15 +128,15 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterProgram(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterProgram(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitProgram(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitProgram(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitProgram(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitProgram(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -145,22 +144,81 @@ public class Cminus2Parser extends Parser {
 	public final ProgramContext program() throws RecognitionException {
 		ProgramContext _localctx = new ProgramContext(_ctx, getState());
 		enterRule(_localctx, 0, RULE_program);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(44);
+			project();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ProjectContext extends ParserRuleContext {
+		public TerminalNode Class() { return getToken(WeakJavaParser.Class, 0); }
+		public TerminalNode Project() { return getToken(WeakJavaParser.Project, 0); }
+		public TerminalNode LeftBrace() { return getToken(WeakJavaParser.LeftBrace, 0); }
+		public MainFunctionContext mainFunction() {
+			return getRuleContext(MainFunctionContext.class,0);
+		}
+		public TerminalNode RightBrace() { return getToken(WeakJavaParser.RightBrace, 0); }
+		public FunctionListContext functionList() {
+			return getRuleContext(FunctionListContext.class,0);
+		}
+		public ProjectContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_project; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterProject(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitProject(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitProject(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ProjectContext project() throws RecognitionException {
+		ProjectContext _localctx = new ProjectContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_project);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(42);
+			setState(46);
+			match(Class);
+			setState(47);
+			match(Project);
+			setState(48);
+			match(LeftBrace);
+			setState(49);
 			mainFunction();
-			setState(44);
+			setState(51);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Int || _la==Rune) {
 				{
-				setState(43);
+				setState(50);
 				functionList(0);
 				}
 			}
 
+			setState(53);
+			match(RightBrace);
 			}
 		}
 		catch (RecognitionException re) {
@@ -187,15 +245,15 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_functionList; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterFunctionList(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterFunctionList(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitFunctionList(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitFunctionList(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitFunctionList(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitFunctionList(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -209,18 +267,18 @@ public class Cminus2Parser extends Parser {
 		int _parentState = getState();
 		FunctionListContext _localctx = new FunctionListContext(_ctx, _parentState);
 		FunctionListContext _prevctx = _localctx;
-		int _startState = 2;
-		enterRecursionRule(_localctx, 2, RULE_functionList, _p);
+		int _startState = 4;
+		enterRecursionRule(_localctx, 4, RULE_functionList, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(47);
+			setState(56);
 			functionDefinition();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(53);
+			setState(62);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -231,14 +289,14 @@ public class Cminus2Parser extends Parser {
 					{
 					_localctx = new FunctionListContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_functionList);
-					setState(49);
+					setState(58);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(50);
+					setState(59);
 					functionDefinition();
 					}
 					} 
 				}
-				setState(55);
+				setState(64);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 			}
@@ -256,10 +314,10 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class MainFunctionContext extends ParserRuleContext {
-		public TerminalNode Int() { return getToken(Cminus2Parser.Int, 0); }
-		public TerminalNode Main() { return getToken(Cminus2Parser.Main, 0); }
-		public TerminalNode Paren() { return getToken(Cminus2Parser.Paren, 0); }
-		public TerminalNode Thesis() { return getToken(Cminus2Parser.Thesis, 0); }
+		public TerminalNode Int() { return getToken(WeakJavaParser.Int, 0); }
+		public TerminalNode Main() { return getToken(WeakJavaParser.Main, 0); }
+		public TerminalNode Paren() { return getToken(WeakJavaParser.Paren, 0); }
+		public TerminalNode Thesis() { return getToken(WeakJavaParser.Thesis, 0); }
 		public CompoundStatementContext compoundStatement() {
 			return getRuleContext(CompoundStatementContext.class,0);
 		}
@@ -269,34 +327,34 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_mainFunction; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterMainFunction(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterMainFunction(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitMainFunction(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitMainFunction(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitMainFunction(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitMainFunction(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final MainFunctionContext mainFunction() throws RecognitionException {
 		MainFunctionContext _localctx = new MainFunctionContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_mainFunction);
+		enterRule(_localctx, 6, RULE_mainFunction);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(56);
+			setState(65);
 			match(Int);
-			setState(57);
+			setState(66);
 			match(Main);
-			setState(58);
+			setState(67);
 			match(Paren);
-			setState(59);
+			setState(68);
 			match(Thesis);
-			setState(60);
+			setState(69);
 			compoundStatement();
 			}
 		}
@@ -315,12 +373,12 @@ public class Cminus2Parser extends Parser {
 		public TypeSpecifierContext typeSpecifier() {
 			return getRuleContext(TypeSpecifierContext.class,0);
 		}
-		public TerminalNode Main() { return getToken(Cminus2Parser.Main, 0); }
-		public TerminalNode Paren() { return getToken(Cminus2Parser.Paren, 0); }
+		public TerminalNode Main() { return getToken(WeakJavaParser.Main, 0); }
+		public TerminalNode Paren() { return getToken(WeakJavaParser.Paren, 0); }
 		public ParsContext pars() {
 			return getRuleContext(ParsContext.class,0);
 		}
-		public TerminalNode Thesis() { return getToken(Cminus2Parser.Thesis, 0); }
+		public TerminalNode Thesis() { return getToken(WeakJavaParser.Thesis, 0); }
 		public CompoundStatementContext compoundStatement() {
 			return getRuleContext(CompoundStatementContext.class,0);
 		}
@@ -330,36 +388,36 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_functionDefinition; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterFunctionDefinition(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterFunctionDefinition(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitFunctionDefinition(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitFunctionDefinition(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitFunctionDefinition(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitFunctionDefinition(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final FunctionDefinitionContext functionDefinition() throws RecognitionException {
 		FunctionDefinitionContext _localctx = new FunctionDefinitionContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_functionDefinition);
+		enterRule(_localctx, 8, RULE_functionDefinition);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(62);
+			setState(71);
 			typeSpecifier(0);
-			setState(63);
+			setState(72);
 			match(Main);
-			setState(64);
+			setState(73);
 			match(Paren);
-			setState(65);
+			setState(74);
 			pars();
-			setState(66);
+			setState(75);
 			match(Thesis);
-			setState(67);
+			setState(76);
 			compoundStatement();
 			}
 		}
@@ -387,15 +445,15 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_statementList; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterStatementList(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterStatementList(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitStatementList(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitStatementList(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitStatementList(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitStatementList(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -409,18 +467,18 @@ public class Cminus2Parser extends Parser {
 		int _parentState = getState();
 		StatementListContext _localctx = new StatementListContext(_ctx, _parentState);
 		StatementListContext _prevctx = _localctx;
-		int _startState = 8;
-		enterRecursionRule(_localctx, 8, RULE_statementList, _p);
+		int _startState = 10;
+		enterRecursionRule(_localctx, 10, RULE_statementList, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(70);
+			setState(79);
 			statement();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(76);
+			setState(85);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -431,14 +489,14 @@ public class Cminus2Parser extends Parser {
 					{
 					_localctx = new StatementListContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_statementList);
-					setState(72);
+					setState(81);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(73);
+					setState(82);
 					statement();
 					}
 					} 
 				}
-				setState(78);
+				setState(87);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			}
@@ -468,15 +526,15 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_declarationList; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterDeclarationList(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterDeclarationList(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitDeclarationList(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitDeclarationList(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitDeclarationList(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitDeclarationList(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -490,18 +548,18 @@ public class Cminus2Parser extends Parser {
 		int _parentState = getState();
 		DeclarationListContext _localctx = new DeclarationListContext(_ctx, _parentState);
 		DeclarationListContext _prevctx = _localctx;
-		int _startState = 10;
-		enterRecursionRule(_localctx, 10, RULE_declarationList, _p);
+		int _startState = 12;
+		enterRecursionRule(_localctx, 12, RULE_declarationList, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(80);
+			setState(89);
 			declaration();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(86);
+			setState(95);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -512,14 +570,14 @@ public class Cminus2Parser extends Parser {
 					{
 					_localctx = new DeclarationListContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_declarationList);
-					setState(82);
+					setState(91);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(83);
+					setState(92);
 					declaration();
 					}
 					} 
 				}
-				setState(88);
+				setState(97);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
@@ -537,33 +595,33 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class VariableContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(Cminus2Parser.Identifier, 0); }
+		public TerminalNode Identifier() { return getToken(WeakJavaParser.Identifier, 0); }
 		public VariableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variable; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterVariable(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterVariable(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitVariable(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitVariable(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitVariable(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitVariable(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final VariableContext variable() throws RecognitionException {
 		VariableContext _localctx = new VariableContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_variable);
+		enterRule(_localctx, 14, RULE_variable);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(89);
+			setState(98);
 			match(Identifier);
 			}
 		}
@@ -579,8 +637,8 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class CompoundStatementContext extends ParserRuleContext {
-		public TerminalNode LeftBrace() { return getToken(Cminus2Parser.LeftBrace, 0); }
-		public TerminalNode RightBrace() { return getToken(Cminus2Parser.RightBrace, 0); }
+		public TerminalNode LeftBrace() { return getToken(WeakJavaParser.LeftBrace, 0); }
+		public TerminalNode RightBrace() { return getToken(WeakJavaParser.RightBrace, 0); }
 		public DeclarationListContext declarationList() {
 			return getRuleContext(DeclarationListContext.class,0);
 		}
@@ -593,49 +651,49 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_compoundStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterCompoundStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterCompoundStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitCompoundStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitCompoundStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitCompoundStatement(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitCompoundStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final CompoundStatementContext compoundStatement() throws RecognitionException {
 		CompoundStatementContext _localctx = new CompoundStatementContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_compoundStatement);
+		enterRule(_localctx, 16, RULE_compoundStatement);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(91);
+			setState(100);
 			match(LeftBrace);
-			setState(93);
+			setState(102);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Int || _la==Rune) {
 				{
-				setState(92);
+				setState(101);
 				declarationList(0);
 				}
 			}
 
-			setState(96);
+			setState(105);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << If) | (1L << Return) | (1L << While) | (1L << Read) | (1L << Write) | (1L << LeftBrace) | (1L << Identifier))) != 0)) {
 				{
-				setState(95);
+				setState(104);
 				statementList(0);
 				}
 			}
 
-			setState(98);
+			setState(107);
 			match(RightBrace);
 			}
 		}
@@ -651,62 +709,62 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class IfStatementContext extends ParserRuleContext {
-		public TerminalNode If() { return getToken(Cminus2Parser.If, 0); }
-		public TerminalNode Paren() { return getToken(Cminus2Parser.Paren, 0); }
+		public TerminalNode If() { return getToken(WeakJavaParser.If, 0); }
+		public TerminalNode Paren() { return getToken(WeakJavaParser.Paren, 0); }
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public TerminalNode Thesis() { return getToken(Cminus2Parser.Thesis, 0); }
+		public TerminalNode Thesis() { return getToken(WeakJavaParser.Thesis, 0); }
 		public List<CompoundStatementContext> compoundStatement() {
 			return getRuleContexts(CompoundStatementContext.class);
 		}
 		public CompoundStatementContext compoundStatement(int i) {
 			return getRuleContext(CompoundStatementContext.class,i);
 		}
-		public TerminalNode Else() { return getToken(Cminus2Parser.Else, 0); }
+		public TerminalNode Else() { return getToken(WeakJavaParser.Else, 0); }
 		public IfStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ifStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterIfStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterIfStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitIfStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitIfStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitIfStatement(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitIfStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final IfStatementContext ifStatement() throws RecognitionException {
 		IfStatementContext _localctx = new IfStatementContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_ifStatement);
+		enterRule(_localctx, 18, RULE_ifStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(100);
+			setState(109);
 			match(If);
-			setState(101);
+			setState(110);
 			match(Paren);
-			setState(102);
+			setState(111);
 			exp(0);
-			setState(103);
+			setState(112);
 			match(Thesis);
-			setState(104);
+			setState(113);
 			compoundStatement();
-			setState(107);
+			setState(116);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				{
-				setState(105);
+				setState(114);
 				match(Else);
-				setState(106);
+				setState(115);
 				compoundStatement();
 				}
 				break;
@@ -725,12 +783,12 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class WhileStatementContext extends ParserRuleContext {
-		public TerminalNode While() { return getToken(Cminus2Parser.While, 0); }
-		public TerminalNode Paren() { return getToken(Cminus2Parser.Paren, 0); }
+		public TerminalNode While() { return getToken(WeakJavaParser.While, 0); }
+		public TerminalNode Paren() { return getToken(WeakJavaParser.Paren, 0); }
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public TerminalNode Thesis() { return getToken(Cminus2Parser.Thesis, 0); }
+		public TerminalNode Thesis() { return getToken(WeakJavaParser.Thesis, 0); }
 		public CompoundStatementContext compoundStatement() {
 			return getRuleContext(CompoundStatementContext.class,0);
 		}
@@ -740,34 +798,34 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_whileStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterWhileStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterWhileStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitWhileStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitWhileStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitWhileStatement(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitWhileStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final WhileStatementContext whileStatement() throws RecognitionException {
 		WhileStatementContext _localctx = new WhileStatementContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_whileStatement);
+		enterRule(_localctx, 20, RULE_whileStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(109);
+			setState(118);
 			match(While);
-			setState(110);
+			setState(119);
 			match(Paren);
-			setState(111);
+			setState(120);
 			exp(0);
-			setState(112);
+			setState(121);
 			match(Thesis);
-			setState(113);
+			setState(122);
 			compoundStatement();
 			}
 		}
@@ -786,43 +844,43 @@ public class Cminus2Parser extends Parser {
 		public LexpContext lexp() {
 			return getRuleContext(LexpContext.class,0);
 		}
-		public TerminalNode Assign() { return getToken(Cminus2Parser.Assign, 0); }
+		public TerminalNode Assign() { return getToken(WeakJavaParser.Assign, 0); }
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public TerminalNode Semi() { return getToken(Cminus2Parser.Semi, 0); }
+		public TerminalNode Semi() { return getToken(WeakJavaParser.Semi, 0); }
 		public AssignStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_assignStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterAssignStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterAssignStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitAssignStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitAssignStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitAssignStatement(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitAssignStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final AssignStatementContext assignStatement() throws RecognitionException {
 		AssignStatementContext _localctx = new AssignStatementContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_assignStatement);
+		enterRule(_localctx, 22, RULE_assignStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(115);
+			setState(124);
 			lexp(0);
-			setState(116);
+			setState(125);
 			match(Assign);
-			setState(117);
+			setState(126);
 			exp(0);
-			setState(118);
+			setState(127);
 			match(Semi);
 			}
 		}
@@ -838,41 +896,41 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class ReturnStatementContext extends ParserRuleContext {
-		public TerminalNode Return() { return getToken(Cminus2Parser.Return, 0); }
+		public TerminalNode Return() { return getToken(WeakJavaParser.Return, 0); }
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public TerminalNode Semi() { return getToken(Cminus2Parser.Semi, 0); }
+		public TerminalNode Semi() { return getToken(WeakJavaParser.Semi, 0); }
 		public ReturnStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_returnStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterReturnStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterReturnStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitReturnStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitReturnStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitReturnStatement(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitReturnStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final ReturnStatementContext returnStatement() throws RecognitionException {
 		ReturnStatementContext _localctx = new ReturnStatementContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_returnStatement);
+		enterRule(_localctx, 24, RULE_returnStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(120);
+			setState(129);
 			match(Return);
-			setState(121);
+			setState(130);
 			exp(0);
-			setState(122);
+			setState(131);
 			match(Semi);
 			}
 		}
@@ -888,44 +946,44 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class FunctionCallContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(Cminus2Parser.Identifier, 0); }
-		public TerminalNode Paren() { return getToken(Cminus2Parser.Paren, 0); }
+		public TerminalNode Identifier() { return getToken(WeakJavaParser.Identifier, 0); }
+		public TerminalNode Paren() { return getToken(WeakJavaParser.Paren, 0); }
 		public ParsContext pars() {
 			return getRuleContext(ParsContext.class,0);
 		}
-		public TerminalNode Thesis() { return getToken(Cminus2Parser.Thesis, 0); }
+		public TerminalNode Thesis() { return getToken(WeakJavaParser.Thesis, 0); }
 		public FunctionCallContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_functionCall; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterFunctionCall(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterFunctionCall(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitFunctionCall(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitFunctionCall(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitFunctionCall(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitFunctionCall(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final FunctionCallContext functionCall() throws RecognitionException {
 		FunctionCallContext _localctx = new FunctionCallContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_functionCall);
+		enterRule(_localctx, 26, RULE_functionCall);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(124);
+			setState(133);
 			match(Identifier);
-			setState(125);
+			setState(134);
 			match(Paren);
-			setState(126);
+			setState(135);
 			pars();
-			setState(127);
+			setState(136);
 			match(Thesis);
 			}
 		}
@@ -941,31 +999,31 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class TypeSpecifierContext extends ParserRuleContext {
-		public TerminalNode Int() { return getToken(Cminus2Parser.Int, 0); }
-		public TerminalNode Rune() { return getToken(Cminus2Parser.Rune, 0); }
+		public TerminalNode Int() { return getToken(WeakJavaParser.Int, 0); }
+		public TerminalNode Rune() { return getToken(WeakJavaParser.Rune, 0); }
 		public TypeSpecifierContext typeSpecifier() {
 			return getRuleContext(TypeSpecifierContext.class,0);
 		}
-		public TerminalNode LeftBracket() { return getToken(Cminus2Parser.LeftBracket, 0); }
+		public TerminalNode LeftBracket() { return getToken(WeakJavaParser.LeftBracket, 0); }
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public TerminalNode RightBracket() { return getToken(Cminus2Parser.RightBracket, 0); }
+		public TerminalNode RightBracket() { return getToken(WeakJavaParser.RightBracket, 0); }
 		public TypeSpecifierContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typeSpecifier; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterTypeSpecifier(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterTypeSpecifier(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitTypeSpecifier(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitTypeSpecifier(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitTypeSpecifier(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitTypeSpecifier(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -979,24 +1037,24 @@ public class Cminus2Parser extends Parser {
 		int _parentState = getState();
 		TypeSpecifierContext _localctx = new TypeSpecifierContext(_ctx, _parentState);
 		TypeSpecifierContext _prevctx = _localctx;
-		int _startState = 26;
-		enterRecursionRule(_localctx, 26, RULE_typeSpecifier, _p);
+		int _startState = 28;
+		enterRecursionRule(_localctx, 28, RULE_typeSpecifier, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(132);
+			setState(141);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Int:
 				{
-				setState(130);
+				setState(139);
 				match(Int);
 				}
 				break;
 			case Rune:
 				{
-				setState(131);
+				setState(140);
 				match(Rune);
 				}
 				break;
@@ -1004,7 +1062,7 @@ public class Cminus2Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(141);
+			setState(150);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -1015,18 +1073,18 @@ public class Cminus2Parser extends Parser {
 					{
 					_localctx = new TypeSpecifierContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_typeSpecifier);
-					setState(134);
+					setState(143);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(135);
+					setState(144);
 					match(LeftBracket);
-					setState(136);
+					setState(145);
 					exp(0);
-					setState(137);
+					setState(146);
 					match(RightBracket);
 					}
 					} 
 				}
-				setState(143);
+				setState(152);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			}
@@ -1047,38 +1105,38 @@ public class Cminus2Parser extends Parser {
 		public TypeSpecifierContext typeSpecifier() {
 			return getRuleContext(TypeSpecifierContext.class,0);
 		}
-		public TerminalNode Identifier() { return getToken(Cminus2Parser.Identifier, 0); }
-		public TerminalNode Semi() { return getToken(Cminus2Parser.Semi, 0); }
+		public TerminalNode Identifier() { return getToken(WeakJavaParser.Identifier, 0); }
+		public TerminalNode Semi() { return getToken(WeakJavaParser.Semi, 0); }
 		public DeclarationContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaration; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterDeclaration(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterDeclaration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitDeclaration(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitDeclaration(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitDeclaration(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitDeclaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final DeclarationContext declaration() throws RecognitionException {
 		DeclarationContext _localctx = new DeclarationContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_declaration);
+		enterRule(_localctx, 30, RULE_declaration);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(144);
+			setState(153);
 			typeSpecifier(0);
-			setState(145);
+			setState(154);
 			match(Identifier);
-			setState(146);
+			setState(155);
 			match(Semi);
 			}
 		}
@@ -1112,11 +1170,11 @@ public class Cminus2Parser extends Parser {
 		public CompoundStatementContext compoundStatement() {
 			return getRuleContext(CompoundStatementContext.class,0);
 		}
-		public TerminalNode Write() { return getToken(Cminus2Parser.Write, 0); }
+		public TerminalNode Write() { return getToken(WeakJavaParser.Write, 0); }
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public TerminalNode Read() { return getToken(Cminus2Parser.Read, 0); }
+		public TerminalNode Read() { return getToken(WeakJavaParser.Read, 0); }
 		public LexpContext lexp() {
 			return getRuleContext(LexpContext.class,0);
 		}
@@ -1126,83 +1184,83 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_statement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitStatement(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitStatement(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
 		StatementContext _localctx = new StatementContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_statement);
+		enterRule(_localctx, 32, RULE_statement);
 		try {
-			setState(158);
+			setState(167);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(148);
+				setState(157);
 				ifStatement();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(149);
+				setState(158);
 				whileStatement();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(150);
+				setState(159);
 				assignStatement();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(151);
+				setState(160);
 				returnStatement();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(152);
+				setState(161);
 				functionCall();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(153);
+				setState(162);
 				compoundStatement();
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(154);
+				setState(163);
 				match(Write);
-				setState(155);
+				setState(164);
 				exp(0);
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(156);
+				setState(165);
 				match(Read);
-				setState(157);
+				setState(166);
 				lexp(0);
 				}
 				break;
@@ -1220,30 +1278,30 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class LexpContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(Cminus2Parser.Identifier, 0); }
+		public TerminalNode Identifier() { return getToken(WeakJavaParser.Identifier, 0); }
 		public LexpContext lexp() {
 			return getRuleContext(LexpContext.class,0);
 		}
-		public TerminalNode LeftBracket() { return getToken(Cminus2Parser.LeftBracket, 0); }
+		public TerminalNode LeftBracket() { return getToken(WeakJavaParser.LeftBracket, 0); }
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public TerminalNode RightBracket() { return getToken(Cminus2Parser.RightBracket, 0); }
+		public TerminalNode RightBracket() { return getToken(WeakJavaParser.RightBracket, 0); }
 		public LexpContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_lexp; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterLexp(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterLexp(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitLexp(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitLexp(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitLexp(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitLexp(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1257,18 +1315,18 @@ public class Cminus2Parser extends Parser {
 		int _parentState = getState();
 		LexpContext _localctx = new LexpContext(_ctx, _parentState);
 		LexpContext _prevctx = _localctx;
-		int _startState = 32;
-		enterRecursionRule(_localctx, 32, RULE_lexp, _p);
+		int _startState = 34;
+		enterRecursionRule(_localctx, 34, RULE_lexp, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(161);
+			setState(170);
 			match(Identifier);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(170);
+			setState(179);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,10,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -1279,18 +1337,18 @@ public class Cminus2Parser extends Parser {
 					{
 					_localctx = new LexpContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_lexp);
-					setState(163);
+					setState(172);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(164);
+					setState(173);
 					match(LeftBracket);
-					setState(165);
+					setState(174);
 					exp(0);
-					setState(166);
+					setState(175);
 					match(RightBracket);
 					}
 					} 
 				}
-				setState(172);
+				setState(181);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,10,_ctx);
 			}
@@ -1320,11 +1378,11 @@ public class Cminus2Parser extends Parser {
 		public ExpContext exp(int i) {
 			return getRuleContext(ExpContext.class,i);
 		}
-		public TerminalNode Paren() { return getToken(Cminus2Parser.Paren, 0); }
-		public TerminalNode Thesis() { return getToken(Cminus2Parser.Thesis, 0); }
-		public TerminalNode Number() { return getToken(Cminus2Parser.Number, 0); }
-		public TerminalNode QRune() { return getToken(Cminus2Parser.QRune, 0); }
-		public TerminalNode Length() { return getToken(Cminus2Parser.Length, 0); }
+		public TerminalNode Paren() { return getToken(WeakJavaParser.Paren, 0); }
+		public TerminalNode Thesis() { return getToken(WeakJavaParser.Thesis, 0); }
+		public TerminalNode Number() { return getToken(WeakJavaParser.Number, 0); }
+		public TerminalNode QRune() { return getToken(WeakJavaParser.QRune, 0); }
+		public TerminalNode Length() { return getToken(WeakJavaParser.Length, 0); }
 		public BinopContext binop() {
 			return getRuleContext(BinopContext.class,0);
 		}
@@ -1334,15 +1392,15 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_exp; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterExp(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterExp(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitExp(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitExp(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitExp(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitExp(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1356,57 +1414,57 @@ public class Cminus2Parser extends Parser {
 		int _parentState = getState();
 		ExpContext _localctx = new ExpContext(_ctx, _parentState);
 		ExpContext _prevctx = _localctx;
-		int _startState = 34;
-		enterRecursionRule(_localctx, 34, RULE_exp, _p);
+		int _startState = 36;
+		enterRecursionRule(_localctx, 36, RULE_exp, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(186);
+			setState(195);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Identifier:
 				{
-				setState(174);
+				setState(183);
 				lexp(0);
 				}
 				break;
 			case Minus:
 			case Not:
 				{
-				setState(175);
+				setState(184);
 				unop();
-				setState(176);
+				setState(185);
 				exp(5);
 				}
 				break;
 			case Paren:
 				{
-				setState(178);
+				setState(187);
 				match(Paren);
-				setState(179);
+				setState(188);
 				exp(0);
-				setState(180);
+				setState(189);
 				match(Thesis);
 				}
 				break;
 			case Number:
 				{
-				setState(182);
+				setState(191);
 				match(Number);
 				}
 				break;
 			case QRune:
 				{
-				setState(183);
+				setState(192);
 				match(QRune);
 				}
 				break;
 			case Length:
 				{
-				setState(184);
+				setState(193);
 				match(Length);
-				setState(185);
+				setState(194);
 				lexp(0);
 				}
 				break;
@@ -1414,7 +1472,7 @@ public class Cminus2Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(194);
+			setState(203);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,12,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -1425,16 +1483,16 @@ public class Cminus2Parser extends Parser {
 					{
 					_localctx = new ExpContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_exp);
-					setState(188);
+					setState(197);
 					if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-					setState(189);
+					setState(198);
 					binop();
-					setState(190);
+					setState(199);
 					exp(7);
 					}
 					} 
 				}
-				setState(196);
+				setState(205);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,12,_ctx);
 			}
@@ -1452,41 +1510,41 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class BinopContext extends ParserRuleContext {
-		public TerminalNode Minus() { return getToken(Cminus2Parser.Minus, 0); }
-		public TerminalNode Plus() { return getToken(Cminus2Parser.Plus, 0); }
-		public TerminalNode Star() { return getToken(Cminus2Parser.Star, 0); }
-		public TerminalNode Div() { return getToken(Cminus2Parser.Div, 0); }
-		public TerminalNode EqualEqual() { return getToken(Cminus2Parser.EqualEqual, 0); }
-		public TerminalNode NotEqual() { return getToken(Cminus2Parser.NotEqual, 0); }
-		public TerminalNode Greater() { return getToken(Cminus2Parser.Greater, 0); }
-		public TerminalNode Less() { return getToken(Cminus2Parser.Less, 0); }
+		public TerminalNode Minus() { return getToken(WeakJavaParser.Minus, 0); }
+		public TerminalNode Plus() { return getToken(WeakJavaParser.Plus, 0); }
+		public TerminalNode Star() { return getToken(WeakJavaParser.Star, 0); }
+		public TerminalNode Div() { return getToken(WeakJavaParser.Div, 0); }
+		public TerminalNode EqualEqual() { return getToken(WeakJavaParser.EqualEqual, 0); }
+		public TerminalNode NotEqual() { return getToken(WeakJavaParser.NotEqual, 0); }
+		public TerminalNode Greater() { return getToken(WeakJavaParser.Greater, 0); }
+		public TerminalNode Less() { return getToken(WeakJavaParser.Less, 0); }
 		public BinopContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_binop; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterBinop(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterBinop(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitBinop(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitBinop(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitBinop(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitBinop(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final BinopContext binop() throws RecognitionException {
 		BinopContext _localctx = new BinopContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_binop);
+		enterRule(_localctx, 38, RULE_binop);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(197);
+			setState(206);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << EqualEqual) | (1L << NotEqual) | (1L << Less) | (1L << Greater) | (1L << Plus) | (1L << Minus) | (1L << Star) | (1L << Div))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -1510,35 +1568,35 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static class UnopContext extends ParserRuleContext {
-		public TerminalNode Minus() { return getToken(Cminus2Parser.Minus, 0); }
-		public TerminalNode Not() { return getToken(Cminus2Parser.Not, 0); }
+		public TerminalNode Minus() { return getToken(WeakJavaParser.Minus, 0); }
+		public TerminalNode Not() { return getToken(WeakJavaParser.Not, 0); }
 		public UnopContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_unop; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterUnop(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterUnop(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitUnop(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitUnop(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitUnop(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitUnop(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final UnopContext unop() throws RecognitionException {
 		UnopContext _localctx = new UnopContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_unop);
+		enterRule(_localctx, 40, RULE_unop);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(199);
+			setState(208);
 			_la = _input.LA(1);
 			if ( !(_la==Minus || _la==Not) ) {
 			_errHandler.recoverInline(this);
@@ -1568,13 +1626,13 @@ public class Cminus2Parser extends Parser {
 		public TypeSpecifierContext typeSpecifier(int i) {
 			return getRuleContext(TypeSpecifierContext.class,i);
 		}
-		public List<TerminalNode> Identifier() { return getTokens(Cminus2Parser.Identifier); }
+		public List<TerminalNode> Identifier() { return getTokens(WeakJavaParser.Identifier); }
 		public TerminalNode Identifier(int i) {
-			return getToken(Cminus2Parser.Identifier, i);
+			return getToken(WeakJavaParser.Identifier, i);
 		}
-		public List<TerminalNode> Comma() { return getTokens(Cminus2Parser.Comma); }
+		public List<TerminalNode> Comma() { return getTokens(WeakJavaParser.Comma); }
 		public TerminalNode Comma(int i) {
-			return getToken(Cminus2Parser.Comma, i);
+			return getToken(WeakJavaParser.Comma, i);
 		}
 		public ParsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1582,50 +1640,50 @@ public class Cminus2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_pars; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).enterPars(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).enterPars(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Cminus2Listener ) ((Cminus2Listener)listener).exitPars(this);
+			if ( listener instanceof WeakJavaListener ) ((WeakJavaListener)listener).exitPars(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Cminus2Visitor ) return ((Cminus2Visitor<? extends T>)visitor).visitPars(this);
+			if ( visitor instanceof WeakJavaVisitor ) return ((WeakJavaVisitor<? extends T>)visitor).visitPars(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final ParsContext pars() throws RecognitionException {
 		ParsContext _localctx = new ParsContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_pars);
+		enterRule(_localctx, 42, RULE_pars);
 		int _la;
 		try {
-			setState(213);
+			setState(222);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Int:
 			case Rune:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(201);
+				setState(210);
 				typeSpecifier(0);
-				setState(202);
+				setState(211);
 				match(Identifier);
-				setState(209);
+				setState(218);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==Comma) {
 					{
 					{
-					setState(203);
+					setState(212);
 					match(Comma);
-					setState(204);
+					setState(213);
 					typeSpecifier(0);
-					setState(205);
+					setState(214);
 					match(Identifier);
 					}
 					}
-					setState(211);
+					setState(220);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -1653,17 +1711,17 @@ public class Cminus2Parser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 1:
+		case 2:
 			return functionList_sempred((FunctionListContext)_localctx, predIndex);
-		case 4:
-			return statementList_sempred((StatementListContext)_localctx, predIndex);
 		case 5:
+			return statementList_sempred((StatementListContext)_localctx, predIndex);
+		case 6:
 			return declarationList_sempred((DeclarationListContext)_localctx, predIndex);
-		case 13:
+		case 14:
 			return typeSpecifier_sempred((TypeSpecifierContext)_localctx, predIndex);
-		case 16:
-			return lexp_sempred((LexpContext)_localctx, predIndex);
 		case 17:
+			return lexp_sempred((LexpContext)_localctx, predIndex);
+		case 18:
 			return exp_sempred((ExpContext)_localctx, predIndex);
 		}
 		return true;
@@ -1712,74 +1770,77 @@ public class Cminus2Parser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\38\u00da\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3:\u00e3\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
-		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\3\2\3\2\5\2/\n\2\3\3\3\3\3\3"+
-		"\3\3\3\3\7\3\66\n\3\f\3\16\39\13\3\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5"+
-		"\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\7\6M\n\6\f\6\16\6P\13\6\3\7\3\7\3"+
-		"\7\3\7\3\7\7\7W\n\7\f\7\16\7Z\13\7\3\b\3\b\3\t\3\t\5\t`\n\t\3\t\5\tc\n"+
-		"\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\5\nn\n\n\3\13\3\13\3\13\3\13\3"+
-		"\13\3\13\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\16\3\16\3\16\3\16\3\16"+
-		"\3\17\3\17\3\17\5\17\u0087\n\17\3\17\3\17\3\17\3\17\3\17\7\17\u008e\n"+
-		"\17\f\17\16\17\u0091\13\17\3\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21"+
-		"\3\21\3\21\3\21\3\21\3\21\5\21\u00a1\n\21\3\22\3\22\3\22\3\22\3\22\3\22"+
-		"\3\22\3\22\7\22\u00ab\n\22\f\22\16\22\u00ae\13\22\3\23\3\23\3\23\3\23"+
-		"\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\5\23\u00bd\n\23\3\23\3\23"+
-		"\3\23\3\23\7\23\u00c3\n\23\f\23\16\23\u00c6\13\23\3\24\3\24\3\25\3\25"+
-		"\3\26\3\26\3\26\3\26\3\26\3\26\7\26\u00d2\n\26\f\26\16\26\u00d5\13\26"+
-		"\3\26\5\26\u00d8\n\26\3\26\2\b\4\n\f\34\"$\27\2\4\6\b\n\f\16\20\22\24"+
-		"\26\30\32\34\36 \"$&(*\2\4\b\2\21\22\31\31\33\33\37\37!!#$\4\2!!++\2\u00dd"+
-		"\2,\3\2\2\2\4\60\3\2\2\2\6:\3\2\2\2\b@\3\2\2\2\nG\3\2\2\2\fQ\3\2\2\2\16"+
-		"[\3\2\2\2\20]\3\2\2\2\22f\3\2\2\2\24o\3\2\2\2\26u\3\2\2\2\30z\3\2\2\2"+
-		"\32~\3\2\2\2\34\u0086\3\2\2\2\36\u0092\3\2\2\2 \u00a0\3\2\2\2\"\u00a2"+
-		"\3\2\2\2$\u00bc\3\2\2\2&\u00c7\3\2\2\2(\u00c9\3\2\2\2*\u00d7\3\2\2\2,"+
-		".\5\6\4\2-/\5\4\3\2.-\3\2\2\2./\3\2\2\2/\3\3\2\2\2\60\61\b\3\1\2\61\62"+
-		"\5\b\5\2\62\67\3\2\2\2\63\64\f\3\2\2\64\66\5\b\5\2\65\63\3\2\2\2\669\3"+
-		"\2\2\2\67\65\3\2\2\2\678\3\2\2\28\5\3\2\2\29\67\3\2\2\2:;\7\6\2\2;<\7"+
-		"\r\2\2<=\7\23\2\2=>\7\24\2\2>?\5\20\t\2?\7\3\2\2\2@A\5\34\17\2AB\7\r\2"+
-		"\2BC\7\23\2\2CD\5*\26\2DE\7\24\2\2EF\5\20\t\2F\t\3\2\2\2GH\b\6\1\2HI\5"+
-		" \21\2IN\3\2\2\2JK\f\3\2\2KM\5 \21\2LJ\3\2\2\2MP\3\2\2\2NL\3\2\2\2NO\3"+
-		"\2\2\2O\13\3\2\2\2PN\3\2\2\2QR\b\7\1\2RS\5\36\20\2SX\3\2\2\2TU\f\3\2\2"+
-		"UW\5\36\20\2VT\3\2\2\2WZ\3\2\2\2XV\3\2\2\2XY\3\2\2\2Y\r\3\2\2\2ZX\3\2"+
-		"\2\2[\\\7\62\2\2\\\17\3\2\2\2]_\7\27\2\2^`\5\f\7\2_^\3\2\2\2_`\3\2\2\2"+
-		"`b\3\2\2\2ac\5\n\6\2ba\3\2\2\2bc\3\2\2\2cd\3\2\2\2de\7\30\2\2e\21\3\2"+
-		"\2\2fg\7\5\2\2gh\7\23\2\2hi\5$\23\2ij\7\24\2\2jm\5\20\t\2kl\7\4\2\2ln"+
-		"\5\20\t\2mk\3\2\2\2mn\3\2\2\2n\23\3\2\2\2op\7\13\2\2pq\7\23\2\2qr\5$\23"+
-		"\2rs\7\24\2\2st\5\20\t\2t\25\3\2\2\2uv\5\"\22\2vw\7\20\2\2wx\5$\23\2x"+
-		"y\7/\2\2y\27\3\2\2\2z{\7\n\2\2{|\5$\23\2|}\7/\2\2}\31\3\2\2\2~\177\7\62"+
-		"\2\2\177\u0080\7\23\2\2\u0080\u0081\5*\26\2\u0081\u0082\7\24\2\2\u0082"+
-		"\33\3\2\2\2\u0083\u0084\b\17\1\2\u0084\u0087\7\6\2\2\u0085\u0087\7\b\2"+
-		"\2\u0086\u0083\3\2\2\2\u0086\u0085\3\2\2\2\u0087\u008f\3\2\2\2\u0088\u0089"+
-		"\f\3\2\2\u0089\u008a\7\25\2\2\u008a\u008b\5$\23\2\u008b\u008c\7\26\2\2"+
-		"\u008c\u008e\3\2\2\2\u008d\u0088\3\2\2\2\u008e\u0091\3\2\2\2\u008f\u008d"+
-		"\3\2\2\2\u008f\u0090\3\2\2\2\u0090\35\3\2\2\2\u0091\u008f\3\2\2\2\u0092"+
-		"\u0093\5\34\17\2\u0093\u0094\7\62\2\2\u0094\u0095\7/\2\2\u0095\37\3\2"+
-		"\2\2\u0096\u00a1\5\22\n\2\u0097\u00a1\5\24\13\2\u0098\u00a1\5\26\f\2\u0099"+
-		"\u00a1\5\30\r\2\u009a\u00a1\5\32\16\2\u009b\u00a1\5\20\t\2\u009c\u009d"+
-		"\7\17\2\2\u009d\u00a1\5$\23\2\u009e\u009f\7\16\2\2\u009f\u00a1\5\"\22"+
-		"\2\u00a0\u0096\3\2\2\2\u00a0\u0097\3\2\2\2\u00a0\u0098\3\2\2\2\u00a0\u0099"+
-		"\3\2\2\2\u00a0\u009a\3\2\2\2\u00a0\u009b\3\2\2\2\u00a0\u009c\3\2\2\2\u00a0"+
-		"\u009e\3\2\2\2\u00a1!\3\2\2\2\u00a2\u00a3\b\22\1\2\u00a3\u00a4\7\62\2"+
-		"\2\u00a4\u00ac\3\2\2\2\u00a5\u00a6\f\3\2\2\u00a6\u00a7\7\25\2\2\u00a7"+
-		"\u00a8\5$\23\2\u00a8\u00a9\7\26\2\2\u00a9\u00ab\3\2\2\2\u00aa\u00a5\3"+
-		"\2\2\2\u00ab\u00ae\3\2\2\2\u00ac\u00aa\3\2\2\2\u00ac\u00ad\3\2\2\2\u00ad"+
-		"#\3\2\2\2\u00ae\u00ac\3\2\2\2\u00af\u00b0\b\23\1\2\u00b0\u00bd\5\"\22"+
-		"\2\u00b1\u00b2\5(\25\2\u00b2\u00b3\5$\23\7\u00b3\u00bd\3\2\2\2\u00b4\u00b5"+
-		"\7\23\2\2\u00b5\u00b6\5$\23\2\u00b6\u00b7\7\24\2\2\u00b7\u00bd\3\2\2\2"+
-		"\u00b8\u00bd\7\63\2\2\u00b9\u00bd\7\64\2\2\u00ba\u00bb\7\3\2\2\u00bb\u00bd"+
-		"\5\"\22\2\u00bc\u00af\3\2\2\2\u00bc\u00b1\3\2\2\2\u00bc\u00b4\3\2\2\2"+
-		"\u00bc\u00b8\3\2\2\2\u00bc\u00b9\3\2\2\2\u00bc\u00ba\3\2\2\2\u00bd\u00c4"+
-		"\3\2\2\2\u00be\u00bf\f\b\2\2\u00bf\u00c0\5&\24\2\u00c0\u00c1\5$\23\t\u00c1"+
-		"\u00c3\3\2\2\2\u00c2\u00be\3\2\2\2\u00c3\u00c6\3\2\2\2\u00c4\u00c2\3\2"+
-		"\2\2\u00c4\u00c5\3\2\2\2\u00c5%\3\2\2\2\u00c6\u00c4\3\2\2\2\u00c7\u00c8"+
-		"\t\2\2\2\u00c8\'\3\2\2\2\u00c9\u00ca\t\3\2\2\u00ca)\3\2\2\2\u00cb\u00cc"+
-		"\5\34\17\2\u00cc\u00d3\7\62\2\2\u00cd\u00ce\7\60\2\2\u00ce\u00cf\5\34"+
-		"\17\2\u00cf\u00d0\7\62\2\2\u00d0\u00d2\3\2\2\2\u00d1\u00cd\3\2\2\2\u00d2"+
-		"\u00d5\3\2\2\2\u00d3\u00d1\3\2\2\2\u00d3\u00d4\3\2\2\2\u00d4\u00d8\3\2"+
-		"\2\2\u00d5\u00d3\3\2\2\2\u00d6\u00d8\3\2\2\2\u00d7\u00cb\3\2\2\2\u00d7"+
-		"\u00d6\3\2\2\2\u00d8+\3\2\2\2\21.\67NX_bm\u0086\u008f\u00a0\u00ac\u00bc"+
-		"\u00c4\u00d3\u00d7";
+		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\3\2\3\2\3\3\3\3\3\3"+
+		"\3\3\3\3\5\3\66\n\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\7\4?\n\4\f\4\16\4B\13"+
+		"\4\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7"+
+		"\3\7\7\7V\n\7\f\7\16\7Y\13\7\3\b\3\b\3\b\3\b\3\b\7\b`\n\b\f\b\16\bc\13"+
+		"\b\3\t\3\t\3\n\3\n\5\ni\n\n\3\n\5\nl\n\n\3\n\3\n\3\13\3\13\3\13\3\13\3"+
+		"\13\3\13\3\13\5\13w\n\13\3\f\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3"+
+		"\16\3\16\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\20\3\20\3\20\5\20\u0090"+
+		"\n\20\3\20\3\20\3\20\3\20\3\20\7\20\u0097\n\20\f\20\16\20\u009a\13\20"+
+		"\3\21\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22"+
+		"\5\22\u00aa\n\22\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\7\23\u00b4\n"+
+		"\23\f\23\16\23\u00b7\13\23\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
+		"\3\24\3\24\3\24\3\24\5\24\u00c6\n\24\3\24\3\24\3\24\3\24\7\24\u00cc\n"+
+		"\24\f\24\16\24\u00cf\13\24\3\25\3\25\3\26\3\26\3\27\3\27\3\27\3\27\3\27"+
+		"\3\27\7\27\u00db\n\27\f\27\16\27\u00de\13\27\3\27\5\27\u00e1\n\27\3\27"+
+		"\2\b\6\f\16\36$&\30\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,\2\4"+
+		"\b\2\23\24\33\33\35\35!!##%&\4\2##--\2\u00e5\2.\3\2\2\2\4\60\3\2\2\2\6"+
+		"9\3\2\2\2\bC\3\2\2\2\nI\3\2\2\2\fP\3\2\2\2\16Z\3\2\2\2\20d\3\2\2\2\22"+
+		"f\3\2\2\2\24o\3\2\2\2\26x\3\2\2\2\30~\3\2\2\2\32\u0083\3\2\2\2\34\u0087"+
+		"\3\2\2\2\36\u008f\3\2\2\2 \u009b\3\2\2\2\"\u00a9\3\2\2\2$\u00ab\3\2\2"+
+		"\2&\u00c5\3\2\2\2(\u00d0\3\2\2\2*\u00d2\3\2\2\2,\u00e0\3\2\2\2./\5\4\3"+
+		"\2/\3\3\2\2\2\60\61\7\20\2\2\61\62\7\21\2\2\62\63\7\31\2\2\63\65\5\b\5"+
+		"\2\64\66\5\6\4\2\65\64\3\2\2\2\65\66\3\2\2\2\66\67\3\2\2\2\678\7\32\2"+
+		"\28\5\3\2\2\29:\b\4\1\2:;\5\n\6\2;@\3\2\2\2<=\f\3\2\2=?\5\n\6\2><\3\2"+
+		"\2\2?B\3\2\2\2@>\3\2\2\2@A\3\2\2\2A\7\3\2\2\2B@\3\2\2\2CD\7\6\2\2DE\7"+
+		"\r\2\2EF\7\25\2\2FG\7\26\2\2GH\5\22\n\2H\t\3\2\2\2IJ\5\36\20\2JK\7\r\2"+
+		"\2KL\7\25\2\2LM\5,\27\2MN\7\26\2\2NO\5\22\n\2O\13\3\2\2\2PQ\b\7\1\2QR"+
+		"\5\"\22\2RW\3\2\2\2ST\f\3\2\2TV\5\"\22\2US\3\2\2\2VY\3\2\2\2WU\3\2\2\2"+
+		"WX\3\2\2\2X\r\3\2\2\2YW\3\2\2\2Z[\b\b\1\2[\\\5 \21\2\\a\3\2\2\2]^\f\3"+
+		"\2\2^`\5 \21\2_]\3\2\2\2`c\3\2\2\2a_\3\2\2\2ab\3\2\2\2b\17\3\2\2\2ca\3"+
+		"\2\2\2de\7\64\2\2e\21\3\2\2\2fh\7\31\2\2gi\5\16\b\2hg\3\2\2\2hi\3\2\2"+
+		"\2ik\3\2\2\2jl\5\f\7\2kj\3\2\2\2kl\3\2\2\2lm\3\2\2\2mn\7\32\2\2n\23\3"+
+		"\2\2\2op\7\5\2\2pq\7\25\2\2qr\5&\24\2rs\7\26\2\2sv\5\22\n\2tu\7\4\2\2"+
+		"uw\5\22\n\2vt\3\2\2\2vw\3\2\2\2w\25\3\2\2\2xy\7\13\2\2yz\7\25\2\2z{\5"+
+		"&\24\2{|\7\26\2\2|}\5\22\n\2}\27\3\2\2\2~\177\5$\23\2\177\u0080\7\22\2"+
+		"\2\u0080\u0081\5&\24\2\u0081\u0082\7\61\2\2\u0082\31\3\2\2\2\u0083\u0084"+
+		"\7\n\2\2\u0084\u0085\5&\24\2\u0085\u0086\7\61\2\2\u0086\33\3\2\2\2\u0087"+
+		"\u0088\7\64\2\2\u0088\u0089\7\25\2\2\u0089\u008a\5,\27\2\u008a\u008b\7"+
+		"\26\2\2\u008b\35\3\2\2\2\u008c\u008d\b\20\1\2\u008d\u0090\7\6\2\2\u008e"+
+		"\u0090\7\b\2\2\u008f\u008c\3\2\2\2\u008f\u008e\3\2\2\2\u0090\u0098\3\2"+
+		"\2\2\u0091\u0092\f\3\2\2\u0092\u0093\7\27\2\2\u0093\u0094\5&\24\2\u0094"+
+		"\u0095\7\30\2\2\u0095\u0097\3\2\2\2\u0096\u0091\3\2\2\2\u0097\u009a\3"+
+		"\2\2\2\u0098\u0096\3\2\2\2\u0098\u0099\3\2\2\2\u0099\37\3\2\2\2\u009a"+
+		"\u0098\3\2\2\2\u009b\u009c\5\36\20\2\u009c\u009d\7\64\2\2\u009d\u009e"+
+		"\7\61\2\2\u009e!\3\2\2\2\u009f\u00aa\5\24\13\2\u00a0\u00aa\5\26\f\2\u00a1"+
+		"\u00aa\5\30\r\2\u00a2\u00aa\5\32\16\2\u00a3\u00aa\5\34\17\2\u00a4\u00aa"+
+		"\5\22\n\2\u00a5\u00a6\7\17\2\2\u00a6\u00aa\5&\24\2\u00a7\u00a8\7\16\2"+
+		"\2\u00a8\u00aa\5$\23\2\u00a9\u009f\3\2\2\2\u00a9\u00a0\3\2\2\2\u00a9\u00a1"+
+		"\3\2\2\2\u00a9\u00a2\3\2\2\2\u00a9\u00a3\3\2\2\2\u00a9\u00a4\3\2\2\2\u00a9"+
+		"\u00a5\3\2\2\2\u00a9\u00a7\3\2\2\2\u00aa#\3\2\2\2\u00ab\u00ac\b\23\1\2"+
+		"\u00ac\u00ad\7\64\2\2\u00ad\u00b5\3\2\2\2\u00ae\u00af\f\3\2\2\u00af\u00b0"+
+		"\7\27\2\2\u00b0\u00b1\5&\24\2\u00b1\u00b2\7\30\2\2\u00b2\u00b4\3\2\2\2"+
+		"\u00b3\u00ae\3\2\2\2\u00b4\u00b7\3\2\2\2\u00b5\u00b3\3\2\2\2\u00b5\u00b6"+
+		"\3\2\2\2\u00b6%\3\2\2\2\u00b7\u00b5\3\2\2\2\u00b8\u00b9\b\24\1\2\u00b9"+
+		"\u00c6\5$\23\2\u00ba\u00bb\5*\26\2\u00bb\u00bc\5&\24\7\u00bc\u00c6\3\2"+
+		"\2\2\u00bd\u00be\7\25\2\2\u00be\u00bf\5&\24\2\u00bf\u00c0\7\26\2\2\u00c0"+
+		"\u00c6\3\2\2\2\u00c1\u00c6\7\65\2\2\u00c2\u00c6\7\66\2\2\u00c3\u00c4\7"+
+		"\3\2\2\u00c4\u00c6\5$\23\2\u00c5\u00b8\3\2\2\2\u00c5\u00ba\3\2\2\2\u00c5"+
+		"\u00bd\3\2\2\2\u00c5\u00c1\3\2\2\2\u00c5\u00c2\3\2\2\2\u00c5\u00c3\3\2"+
+		"\2\2\u00c6\u00cd\3\2\2\2\u00c7\u00c8\f\b\2\2\u00c8\u00c9\5(\25\2\u00c9"+
+		"\u00ca\5&\24\t\u00ca\u00cc\3\2\2\2\u00cb\u00c7\3\2\2\2\u00cc\u00cf\3\2"+
+		"\2\2\u00cd\u00cb\3\2\2\2\u00cd\u00ce\3\2\2\2\u00ce\'\3\2\2\2\u00cf\u00cd"+
+		"\3\2\2\2\u00d0\u00d1\t\2\2\2\u00d1)\3\2\2\2\u00d2\u00d3\t\3\2\2\u00d3"+
+		"+\3\2\2\2\u00d4\u00d5\5\36\20\2\u00d5\u00dc\7\64\2\2\u00d6\u00d7\7\62"+
+		"\2\2\u00d7\u00d8\5\36\20\2\u00d8\u00d9\7\64\2\2\u00d9\u00db\3\2\2\2\u00da"+
+		"\u00d6\3\2\2\2\u00db\u00de\3\2\2\2\u00dc\u00da\3\2\2\2\u00dc\u00dd\3\2"+
+		"\2\2\u00dd\u00e1\3\2\2\2\u00de\u00dc\3\2\2\2\u00df\u00e1\3\2\2\2\u00e0"+
+		"\u00d4\3\2\2\2\u00e0\u00df\3\2\2\2\u00e1-\3\2\2\2\21\65@Wahkv\u008f\u0098"+
+		"\u00a9\u00b5\u00c5\u00cd\u00dc\u00e0";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

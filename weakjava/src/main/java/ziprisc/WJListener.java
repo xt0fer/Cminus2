@@ -1,29 +1,30 @@
 package ziprisc;
 
 //import java.util.HashMap;
-import antlr4.ziprisc.Cminus2Listener;
-import antlr4.ziprisc.Cminus2Parser;
-import antlr4.ziprisc.Cminus2Parser.FunctionListContext;
-import antlr4.ziprisc.Cminus2Parser.MainFunctionContext;
-import antlr4.ziprisc.Cminus2Parser.ProgramContext;
-import antlr4.ziprisc.Cminus2Parser.FunctionDefinitionContext;
-import antlr4.ziprisc.Cminus2Parser.StatementListContext;
-import antlr4.ziprisc.Cminus2Parser.DeclarationListContext;
-import antlr4.ziprisc.Cminus2Parser.VariableContext;
-import antlr4.ziprisc.Cminus2Parser.CompoundStatementContext;
-import antlr4.ziprisc.Cminus2Parser.IfStatementContext;
-import antlr4.ziprisc.Cminus2Parser.WhileStatementContext;
-import antlr4.ziprisc.Cminus2Parser.TypeSpecifierContext;
-import antlr4.ziprisc.Cminus2Parser.DeclarationContext;
-import antlr4.ziprisc.Cminus2Parser.StatementContext;
-import antlr4.ziprisc.Cminus2Parser.LexpContext;
-import antlr4.ziprisc.Cminus2Parser.ExpContext;
-import antlr4.ziprisc.Cminus2Parser.BinopContext;
-import antlr4.ziprisc.Cminus2Parser.UnopContext;
-import antlr4.ziprisc.Cminus2Parser.ParsContext;
-import antlr4.ziprisc.Cminus2Parser.AssignStatementContext;
-import antlr4.ziprisc.Cminus2Parser.ReturnStatementContext;
-import antlr4.ziprisc.Cminus2Parser.FunctionCallContext;
+
+import antlr4.ziprisc.WeakJavaListener;
+import antlr4.ziprisc.WeakJavaParser;
+import antlr4.ziprisc.WeakJavaParser.FunctionListContext;
+import antlr4.ziprisc.WeakJavaParser.MainFunctionContext;
+import antlr4.ziprisc.WeakJavaParser.ProgramContext;
+import antlr4.ziprisc.WeakJavaParser.FunctionDefinitionContext;
+import antlr4.ziprisc.WeakJavaParser.StatementListContext;
+import antlr4.ziprisc.WeakJavaParser.DeclarationListContext;
+import antlr4.ziprisc.WeakJavaParser.VariableContext;
+import antlr4.ziprisc.WeakJavaParser.CompoundStatementContext;
+import antlr4.ziprisc.WeakJavaParser.IfStatementContext;
+import antlr4.ziprisc.WeakJavaParser.WhileStatementContext;
+import antlr4.ziprisc.WeakJavaParser.TypeSpecifierContext;
+import antlr4.ziprisc.WeakJavaParser.DeclarationContext;
+import antlr4.ziprisc.WeakJavaParser.StatementContext;
+import antlr4.ziprisc.WeakJavaParser.LexpContext;
+import antlr4.ziprisc.WeakJavaParser.ExpContext;
+import antlr4.ziprisc.WeakJavaParser.BinopContext;
+import antlr4.ziprisc.WeakJavaParser.UnopContext;
+import antlr4.ziprisc.WeakJavaParser.ParsContext;
+import antlr4.ziprisc.WeakJavaParser.AssignStatementContext;
+import antlr4.ziprisc.WeakJavaParser.ReturnStatementContext;
+import antlr4.ziprisc.WeakJavaParser.FunctionCallContext;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -32,7 +33,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import java.util.Stack;
 
 
-public class Cm2Listener implements Cminus2Listener {
+public class WJListener implements WeakJavaListener {
 
     //private HashMap<String,String> symbol_table = new HashMap<>();
     private static final boolean DFLAG = false; //debug flag turns on tracing
@@ -43,7 +44,7 @@ public class Cm2Listener implements Cminus2Listener {
 
     private Stack<VarScope> scopes;
 
-    public Cm2Listener() {
+    public WJListener() {
         scopes = new Stack<VarScope>();
         scopes.push(new VarScope(null));
     } 
@@ -122,6 +123,19 @@ public class Cm2Listener implements Cminus2Listener {
         this.emitI("OUT", xarg1);
         this.emitI("HLT");
     }
+
+    @Override public void enterProject(WeakJavaParser.ProjectContext ctx) { }
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override public void exitProject(WeakJavaParser.ProjectContext ctx) { }
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
 
     public void enterFunctionList(FunctionListContext ctx) {
         if (DFLAG) System.out.print("");
