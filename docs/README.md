@@ -1,6 +1,6 @@
 # WeakJava
 
-cm2 the WeakJava compiler.
+wjc the WeakJava compiler.
 
 Compiles WeakJava code into zas assembly code.
 

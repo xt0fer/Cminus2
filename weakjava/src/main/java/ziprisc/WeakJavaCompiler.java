@@ -17,8 +17,8 @@ public class WeakJavaCompiler {
     private static final String PROGRAM = "class Project { \nint main() { int i; \ni = 0;\n return i;\n}\n}";
 
     public static void main(String[] args) {
-        String cminusContent = WeakJavaCompiler.PROGRAM;
-        WeakJavaLexer lexer = new WeakJavaLexer(CharStreams.fromString(cminusContent));
+        String wjContent = WeakJavaCompiler.PROGRAM;
+        WeakJavaLexer lexer = new WeakJavaLexer(CharStreams.fromString(wjContent));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         WeakJavaParser parser = new WeakJavaParser(tokens);
         ParseTree tree = parser.program();

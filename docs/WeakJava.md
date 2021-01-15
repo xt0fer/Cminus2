@@ -1,4 +1,4 @@
-# WeakJava
+# WeakJava v1.0
 
 ### Introduction
 
@@ -6,11 +6,16 @@ WeakJava is a small language based on a subset of Java.
 
 The aim of the project is to develop a compiler that compiles WeakJava source into ZipRISC1 assembler language that can be processed by the [zas assembler](http://en.wikipedia.org/wiki/ZipRISC1).
 
-WeakJava has no global variables.
-Variables must be local to the procedural/function scope.
+WeakJava has no global variables. There are no class (static) variables.
+(well, except maybe the I/O routines, maybe they should be Sys.read and Sys.write. 
+Sys will be imported implicitly, as there is no other way to do it.)
 
-WeakJava must have a `Project` class and a `main()` function inside of it. 
-All other functions are defined outside of main, but inside of `Project`.
+Variables must be local to the project-class/main/function scope.
+
+WeakJava must start with a `Project` class and a `main()` function/method inside of it. 
+All other functions/methods are defined outside of main, but inside of `Project`. 
+No nesting of functions/methods.
+Therefore, WeakJava is an 'object-oriented language' :-)
 
 It suffices to write a program `wjc` that
 
@@ -89,7 +94,7 @@ Since there is no support for libraries, I/O is built in.
 
 #### Expressions
 
-Expressions are standard. As in C, there is no boolean type.
+Expressions are standard. As in C, there is no boolean type (yet).
 
 An integer value of 0 stands for false, any other integer for true.
 
@@ -129,7 +134,7 @@ int main()
 
 ### Tools
 
-- Use [make](). The default target should construct the compiler. 
+- Use [make](). The default target should construct the compiler?
 - Use [antlr4]() to generate the parser/lexer using the supplied grammar file.
 - You may want to do the `zaszy` project (which gives you practice writing ZAS code for ZipRISC1) before you attempt this project.
 
