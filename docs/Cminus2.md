@@ -1,20 +1,20 @@
-# Cminus2
+# WeakJava
 
 ### Introduction
 
-Cminus is a small language based on a subset of C.
+WeakJava is a small language based on a subset of Java.
 
-The aim of the project is to develop a compiler that compiles Cminus2 source into ZipRISC1 assembler language that can be processed by the [zas assembler](http://en.wikipedia.org/wiki/ZipRISC1).
+The aim of the project is to develop a compiler that compiles WeakJava source into ZipRISC1 assembler language that can be processed by the [zas assembler](http://en.wikipedia.org/wiki/ZipRISC1).
 
-Cminus has no global variables.
+WeakJava has no global variables.
 Variables must be local to the procedural/function scope.
 
-Cminus must have a `main()` function. 
-All other functions are defined outside of main.
+WeakJava must have a `Project` class and a `main()` function inside of it. 
+All other functions are defined outside of main, but inside of `Project`.
 
-It suffices to write a program `cm2` that
+It suffices to write a program `wjc` that
 
-*   Reads Cminus2 source from its standard input (`stdin`).
+*   Reads WeakJava source from its standard input (`stdin`).
 *   Writes x86 assembler to its standard output (`stdout`).
 *   Uses standard error (`stderr`) for error messages.
 
@@ -48,89 +48,14 @@ Conventions:
 *   Otherwise, the rules are as in yacc/bison specifications.
 
 ```
-program		: [declaration]+
-		;
-
-declaration	: fun_declaration
-		| var_declaration
-		;
-
-fun_declaration	: type NAME LPAR formal_pars RPAR block
-		;
-
-formal_pars	: formal_par [ COMMA formal_par ]*
-		| 	// empty
-		;
-
-formal_par	: type NAME
-		;
-
-block		: LBRACE var_declaration* statements RBRACE
-		;
-
-var_declaration	: type NAME SEMICOLON
-		;
-
-type		: INT
-		| CHAR
-		| type LBRACK exp RBRACK // array type
-		;
-
-statements	: statement [ SEMICOLON statement]*
-		|
-		;
-
-statement	: IF LPAR exp RPAR statement
-		| IF LPAR exp RPAR statement ELSE statement
-		| WHILE LPAR exp RPAR statement
-		| lexp ASSIGN exp
-		| RETURN exp 
-		| NAME LPAR pars RPAR		// function call
-		| block
-		| WRITE exp
-		| READ lexp
-		;
-
-lexp		: var
-		| lexp LBRACK exp RBRACK	// array access
-		;
-
-exp		: lexp
-		| exp binop exp		
-		| unop exp
-		| LPAR exp RPAR
-		| NUMBER 
-		| NAME LPAR pars RPAR		// function call
-		| QCHAR
-		| LENGTH lexp			// size of an array
-		;
-
-binop		: MINUS
-		| PLUS
-		| TIMES
-		| DIVIDE
-		| EQUAL
-		| NEQUAL
-		| GREATER
-		| LESS
-		;
-
-unop		: MINUS
-		| NOT
-		;
-
-pars		: exp [COMMA exp]*	
-		| 
-		;
-
-var		: INDENTIFIER
+/* grammar should go here */
 ```
 
 ### Semantics
 
 #### Data types
 
-Cminus2 supports two primitive data types: rune (utf-8 char as 32bit word), and int. The only type constructor is the array type.
+WeakJava supports two primitive data types: rune (utf-8 char as 32bit word), and int. The only type constructor is the array type.
 
 ```
 int		a1;
@@ -181,7 +106,7 @@ The size of an array can be tested using the `len` built-in function.
 
 	..
 	int[10]	b;
-	f(b);	// OK
+	this.f(b);	// OK
 ```
 
 
@@ -190,19 +115,21 @@ The size of an array can be tested using the `len` built-in function.
 
 When executed, the program starts up by executing the function `main`.
 
-```int main()
+```
+class Project {
+
+int main()
 {
 ..
 }
+
+} // end class
 ```
 
-
-
-</dl>
 
 ### Tools
 
 - Use [make](). The default target should construct the compiler. 
 - Use [antlr4]() to generate the parser/lexer using the supplied grammar file.
-- You may want to do the `zaszy` project before you attempt this project.
+- You may want to do the `zaszy` project (which gives you practice writing ZAS code for ZipRISC1) before you attempt this project.
 
