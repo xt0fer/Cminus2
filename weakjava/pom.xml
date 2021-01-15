@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ziprisc</groupId>
-  <artifactId>cminus2</artifactId>
+  <artifactId>weakjava</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>cminus2</name>
+  <name>weakjava</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 

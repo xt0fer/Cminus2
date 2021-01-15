@@ -1,11 +1,11 @@
-# Cminus2
+# WeakJava
 
 cm2 - a mini C compiler for ziprisc1
 
 or maybe this needs to be WeakJava (.wj) and wjc (compiler)
-cm2 the Cminus2 compiler.
+cm2 the WeakJava compiler.
 
-Compiles Cminus2 code into zas assembly code.
+Compiles WeakJava code into zas assembly code.
 
 the output (stdout) should be put into a `.zas` file.
 
