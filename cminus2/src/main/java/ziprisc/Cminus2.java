@@ -1,7 +1,8 @@
 package ziprisc;
 
-import antlr4.ziprisc.parser.Cminus2Lexer;
-import antlr4.ziprisc.parser.Cminus2Parser;
+import antlr4.ziprisc.Cminus2Lexer;
+import antlr4.ziprisc.Cminus2Parser;
+
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -23,8 +24,8 @@ public class Cminus2 {
         ParseTree tree = parser.program();
         ParseTreeWalker walker = new ParseTreeWalker();
         ziprisc.Cm2Listener listener = new ziprisc.Cm2Listener();
-        walker.walk((ParseTreeListener) listener, tree);
-        System.out.println(tree.toStringTree(parser)); 
+        walker.walk(listener, tree);
+        System.out.println(tree.toStringTree(parser));
 
     }
 }

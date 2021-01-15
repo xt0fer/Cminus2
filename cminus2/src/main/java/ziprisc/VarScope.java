@@ -1,16 +1,16 @@
-package java.ziprisc;
+package ziprisc;
 
 import java.util.HashSet;
 
-public class Scope extends HashSet<String> {
+public class VarScope extends HashSet<String> {
 
     /**
      *
      */
     private static final long serialVersionUID = 1L;
-    final Scope parent;
+    final VarScope parent;
 
-    public Scope(Scope parent) {
+    public VarScope(VarScope parent) {
         this.parent = parent;
     }
 
