@@ -1,5 +1,5 @@
 // Generated from /Volumes/DeVere/kristofer/Documents/Projects/WeakJava/weakjava/src/main/antlr4/ziprisc/WeakJava.g4 by ANTLR 4.9
-package antlr4.ziprisc;
+package ziprisc;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -232,25 +232,37 @@ public class WeakJavaBaseListener implements WeakJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExp(WeakJavaParser.ExpContext ctx) { }
+	@Override public void enterExpr(WeakJavaParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExp(WeakJavaParser.ExpContext ctx) { }
+	@Override public void exitExpr(WeakJavaParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBinop(WeakJavaParser.BinopContext ctx) { }
+	@Override public void enterBinaryOp(WeakJavaParser.BinaryOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBinop(WeakJavaParser.BinopContext ctx) { }
+	@Override public void exitBinaryOp(WeakJavaParser.BinaryOpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRelationOp(WeakJavaParser.RelationOpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRelationOp(WeakJavaParser.RelationOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -275,6 +287,18 @@ public class WeakJavaBaseListener implements WeakJavaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPars(WeakJavaParser.ParsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBoolValue(WeakJavaParser.BoolValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolValue(WeakJavaParser.BoolValueContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

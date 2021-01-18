@@ -21,7 +21,7 @@ mainFunction
     ;
 
 functionDefinition
-    : typeSpecifier Main Paren pars Thesis compoundStatement
+    : typeSpecifier Identifier Paren pars Thesis compoundStatement
     ;
 
 statementList
@@ -41,21 +41,22 @@ compoundStatement
     ;
 
 ifStatement
-    :   If Paren exp Thesis compoundStatement (Else compoundStatement)?
+    :   If Paren expr Thesis compoundStatement (Else compoundStatement)?
     ;
 
 whileStatement
-    :   While Paren exp Thesis compoundStatement
+    :   While Paren expr Thesis compoundStatement
     ;
 
-assignStatement : lexp Assign exp Semi ;
-returnStatement : Return exp Semi ;
+assignStatement : lexp Assign expr Semi ;
+returnStatement : Return expr Semi ;
 functionCall : Identifier  Paren pars  Thesis ;
 
 typeSpecifier
     :   Int
     |   Rune
-    | typeSpecifier LeftBracket exp RightBracket // array type
+    |   Boolean
+    | typeSpecifier LeftBracket expr RightBracket // array type
     ;
 
 declaration
@@ -69,31 +70,36 @@ statement
     | returnStatement 
     | functionCall    // function call
     | compoundStatement
-    | Write exp
+    | Write expr
     | Read lexp
     ;
 
 lexp
     : Identifier
-    | lexp LeftBracket exp RightBracket	// array access
+    | lexp LeftBracket expr RightBracket	// array access
     ;
 
-exp
+expr
     : lexp
-    | exp binop exp    
-    | unop exp
-    | Paren exp Thesis
+    | expr relationOp expr
+    | expr binaryOp expr
+    | unop expr
+    | Paren expr Thesis
     | Number 
     | QRune
     | Length lexp    	// size of an array
     ;
 
-binop
+binaryOp
     : Minus
     | Plus
     | Star
     | Div
-    | EqualEqual
+    | Mod
+    ;
+
+relationOp
+    : EqualEqual
     | NotEqual
     | Greater
     | Less
@@ -109,6 +115,8 @@ pars
     | 
     ;
 
+boolValue : True | False ;
+
 // Lexer Tokens (things which start with Uppercase Letter)
 
 Length : 'len';
@@ -117,6 +125,7 @@ If : 'if';
 Int : 'int';
 String : 'string';
 Rune : 'rune';
+Boolean : 'boolean';
 Array : 'array';
 Return : 'return';
 While : 'while';
@@ -126,6 +135,8 @@ Read : 'read';
 Write : 'write';
 Class : 'class';
 Project : 'Project';
+True : 'true' ;
+False : 'false' ;
 
 Assign : '=';
 EqualEqual : '==';
@@ -206,6 +217,8 @@ QRune
 Qstr
     : Quote IdentifierNondigit+ Quote
     ;
+// STRING    : '"' ~'"'* '"';
+
 
 // white space
 Whitespace

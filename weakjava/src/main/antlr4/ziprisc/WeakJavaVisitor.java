@@ -1,5 +1,5 @@
 // Generated from /Volumes/DeVere/kristofer/Documents/Projects/WeakJava/weakjava/src/main/antlr4/ziprisc/WeakJava.g4 by ANTLR 4.9
-package antlr4.ziprisc;
+package ziprisc;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -119,17 +119,23 @@ public interface WeakJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLexp(WeakJavaParser.LexpContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link WeakJavaParser#exp}.
+	 * Visit a parse tree produced by {@link WeakJavaParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExp(WeakJavaParser.ExpContext ctx);
+	T visitExpr(WeakJavaParser.ExprContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link WeakJavaParser#binop}.
+	 * Visit a parse tree produced by {@link WeakJavaParser#binaryOp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBinop(WeakJavaParser.BinopContext ctx);
+	T visitBinaryOp(WeakJavaParser.BinaryOpContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link WeakJavaParser#relationOp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelationOp(WeakJavaParser.RelationOpContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link WeakJavaParser#unop}.
 	 * @param ctx the parse tree
@@ -142,4 +148,10 @@ public interface WeakJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPars(WeakJavaParser.ParsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link WeakJavaParser#boolValue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolValue(WeakJavaParser.BoolValueContext ctx);
 }

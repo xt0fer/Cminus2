@@ -1,8 +1,8 @@
 package ziprisc;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
-public class VarScope extends HashSet<String> {
+public class VarScope extends HashMap<String,LocalVar> {
 
     /**
      *
@@ -15,7 +15,7 @@ public class VarScope extends HashSet<String> {
     }
 
     boolean inScope(String varName) {
-        if(super.contains(varName)) {
+        if(super.containsKey(varName)) {
             return true;
         }
         return parent == null ? false : parent.inScope(varName);

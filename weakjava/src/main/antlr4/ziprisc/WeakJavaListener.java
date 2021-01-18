@@ -1,5 +1,5 @@
 // Generated from /Volumes/DeVere/kristofer/Documents/Projects/WeakJava/weakjava/src/main/antlr4/ziprisc/WeakJava.g4 by ANTLR 4.9
-package antlr4.ziprisc;
+package ziprisc;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -188,25 +188,35 @@ public interface WeakJavaListener extends ParseTreeListener {
 	 */
 	void exitLexp(WeakJavaParser.LexpContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link WeakJavaParser#exp}.
+	 * Enter a parse tree produced by {@link WeakJavaParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterExp(WeakJavaParser.ExpContext ctx);
+	void enterExpr(WeakJavaParser.ExprContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link WeakJavaParser#exp}.
+	 * Exit a parse tree produced by {@link WeakJavaParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitExp(WeakJavaParser.ExpContext ctx);
+	void exitExpr(WeakJavaParser.ExprContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link WeakJavaParser#binop}.
+	 * Enter a parse tree produced by {@link WeakJavaParser#binaryOp}.
 	 * @param ctx the parse tree
 	 */
-	void enterBinop(WeakJavaParser.BinopContext ctx);
+	void enterBinaryOp(WeakJavaParser.BinaryOpContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link WeakJavaParser#binop}.
+	 * Exit a parse tree produced by {@link WeakJavaParser#binaryOp}.
 	 * @param ctx the parse tree
 	 */
-	void exitBinop(WeakJavaParser.BinopContext ctx);
+	void exitBinaryOp(WeakJavaParser.BinaryOpContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link WeakJavaParser#relationOp}.
+	 * @param ctx the parse tree
+	 */
+	void enterRelationOp(WeakJavaParser.RelationOpContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link WeakJavaParser#relationOp}.
+	 * @param ctx the parse tree
+	 */
+	void exitRelationOp(WeakJavaParser.RelationOpContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link WeakJavaParser#unop}.
 	 * @param ctx the parse tree
@@ -227,4 +237,14 @@ public interface WeakJavaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPars(WeakJavaParser.ParsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link WeakJavaParser#boolValue}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolValue(WeakJavaParser.BoolValueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link WeakJavaParser#boolValue}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolValue(WeakJavaParser.BoolValueContext ctx);
 }

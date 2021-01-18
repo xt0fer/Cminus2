@@ -2,30 +2,6 @@ package ziprisc;
 
 //import java.util.HashMap;
 
-import antlr4.ziprisc.WeakJavaListener;
-import antlr4.ziprisc.WeakJavaParser;
-import antlr4.ziprisc.WeakJavaParser.FunctionListContext;
-import antlr4.ziprisc.WeakJavaParser.MainFunctionContext;
-import antlr4.ziprisc.WeakJavaParser.ProgramContext;
-import antlr4.ziprisc.WeakJavaParser.FunctionDefinitionContext;
-import antlr4.ziprisc.WeakJavaParser.StatementListContext;
-import antlr4.ziprisc.WeakJavaParser.DeclarationListContext;
-import antlr4.ziprisc.WeakJavaParser.VariableContext;
-import antlr4.ziprisc.WeakJavaParser.CompoundStatementContext;
-import antlr4.ziprisc.WeakJavaParser.IfStatementContext;
-import antlr4.ziprisc.WeakJavaParser.WhileStatementContext;
-import antlr4.ziprisc.WeakJavaParser.TypeSpecifierContext;
-import antlr4.ziprisc.WeakJavaParser.DeclarationContext;
-import antlr4.ziprisc.WeakJavaParser.StatementContext;
-import antlr4.ziprisc.WeakJavaParser.LexpContext;
-import antlr4.ziprisc.WeakJavaParser.ExpContext;
-import antlr4.ziprisc.WeakJavaParser.BinopContext;
-import antlr4.ziprisc.WeakJavaParser.UnopContext;
-import antlr4.ziprisc.WeakJavaParser.ParsContext;
-import antlr4.ziprisc.WeakJavaParser.AssignStatementContext;
-import antlr4.ziprisc.WeakJavaParser.ReturnStatementContext;
-import antlr4.ziprisc.WeakJavaParser.FunctionCallContext;
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -36,11 +12,13 @@ import java.util.Stack;
 public class WJListener implements WeakJavaListener {
 
     //private HashMap<String,String> symbol_table = new HashMap<>();
-    private static final boolean DFLAG = false; //debug flag turns on tracing
+    private static final boolean DFLAG = true; //debug flag turns on tracing
     private String xarg0 = "x7";
     private String xarg1 = "x8";
     private String xarg2 = "x9";
     private String xarg3 = "xA";
+
+    private int labelSerial = 1;
 
     private Stack<VarScope> scopes;
 
@@ -87,6 +65,13 @@ public class WJListener implements WeakJavaListener {
         System.out.println();
     }
 
+    private String generateLabel() {
+        String lstr = "L" + Integer.toString(this.labelSerial) + ":";
+        this.labelSerial++;
+        return lstr;
+    }
+
+
     @Override
     public void visitTerminal(TerminalNode node) {
         if (DFLAG) emit("# token", node.getSymbol().getText());
@@ -94,30 +79,30 @@ public class WJListener implements WeakJavaListener {
 
     @Override
     public void visitErrorNode(ErrorNode node) {
-        if (DFLAG) System.out.print("");
+        
 
     }
 
     @Override
     public void enterEveryRule(ParserRuleContext ctx) {
-        if (DFLAG) System.out.print("");
+        
     }
 
     @Override
     public void exitEveryRule(ParserRuleContext ctx) {
-        if (DFLAG) System.out.print("");
+        
 
     }
 
     @Override
-    public void enterProgram(ProgramContext ctx) {
+    public void enterProgram(WeakJavaParser.ProgramContext ctx) {
         this.emitDirective(".OR", "0x0000");
         this.emitI("BRA", "main");
     }
 
     @Override
-    public void exitProgram(ProgramContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void exitProgram(WeakJavaParser.ProgramContext ctx) {
+        
         if (DFLAG) emit("# exit");
         this.emitI("POP", xarg1);
         this.emitI("OUT", xarg1);
@@ -137,159 +122,155 @@ public class WJListener implements WeakJavaListener {
      * <p>The default implementation does nothing.</p>
      */
 
-    public void enterFunctionList(FunctionListContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void enterFunctionList(WeakJavaParser.FunctionListContext ctx) {
+        
 
     }
 
     @Override
-    public void exitFunctionList(FunctionListContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void exitFunctionList(WeakJavaParser.FunctionListContext ctx) {
+        
 
     }
 
     @Override
-    public void enterMainFunction(MainFunctionContext ctx) {
+    public void enterMainFunction(WeakJavaParser.MainFunctionContext ctx) {
         scopes.push(new VarScope(scopes.peek()));
 
         this.emitLabel("main");
     }
 
     @Override
-    public void exitMainFunction(MainFunctionContext ctx) {
+    public void exitMainFunction(WeakJavaParser.MainFunctionContext ctx) {
         scopes.pop();
 
     }
 
     @Override
-    public void enterFunctionDefinition(FunctionDefinitionContext ctx) {
+    public void enterFunctionDefinition(WeakJavaParser.FunctionDefinitionContext ctx) {
         scopes.push(new VarScope(scopes.peek()));
 
     }
 
     @Override
-    public void exitFunctionDefinition(FunctionDefinitionContext ctx) {
+    public void exitFunctionDefinition(WeakJavaParser.FunctionDefinitionContext ctx) {
         scopes.pop();
 
     }
 
     @Override
-    public void enterStatementList(StatementListContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void enterStatementList(WeakJavaParser.StatementListContext ctx) {
+        
 
     }
 
     @Override
-    public void exitStatementList(StatementListContext ctx) {
-        if (DFLAG) System.out.print("");
-
+    public void exitStatementList(WeakJavaParser.StatementListContext ctx) {
     }
 
     @Override
-    public void enterDeclarationList(DeclarationListContext ctx) {
-        if (DFLAG) System.out.print("");
-
+    public void enterDeclarationList(WeakJavaParser.DeclarationListContext ctx) {
     }
 
     @Override
-    public void exitDeclarationList(DeclarationListContext ctx) {
-        if (DFLAG) System.out.print("");
-
+    public void exitDeclarationList(WeakJavaParser.DeclarationListContext ctx) {
     }
 
     @Override
-    public void enterVariable(VariableContext ctx) {
+    public void enterVariable(WeakJavaParser.VariableContext ctx) {
         if (DFLAG) System.out.println(">variable");
     }
 
     @Override
-    public void exitVariable(VariableContext ctx) {
+    public void exitVariable(WeakJavaParser.VariableContext ctx) {
         if (DFLAG) System.out.println("<variable");
 
     }
 
     @Override
-    public void enterCompoundStatement(CompoundStatementContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void enterCompoundStatement(WeakJavaParser.CompoundStatementContext ctx) {
+        
 
     }
 
     @Override
-    public void exitCompoundStatement(CompoundStatementContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void exitCompoundStatement(WeakJavaParser.CompoundStatementContext ctx) {
+        
 
     }
 
     @Override
-    public void enterIfStatement(IfStatementContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void enterIfStatement(WeakJavaParser.IfStatementContext ctx) {
+        
 
     }
 
     @Override
-    public void exitIfStatement(IfStatementContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void exitIfStatement(WeakJavaParser.IfStatementContext ctx) {
+        
 
     }
 
     @Override
-    public void enterWhileStatement(WhileStatementContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void enterWhileStatement(WeakJavaParser.WhileStatementContext ctx) {
+        
 
     }
 
     @Override
-    public void exitWhileStatement(WhileStatementContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void exitWhileStatement(WeakJavaParser.WhileStatementContext ctx) {
+        
 
     }
 
     @Override
-    public void enterTypeSpecifier(TypeSpecifierContext ctx) {
+    public void enterTypeSpecifier(WeakJavaParser.TypeSpecifierContext ctx) {
         if (DFLAG) emit("// TypeSpecifier", ctx.getText());
 
     }
 
     @Override
-    public void exitTypeSpecifier(TypeSpecifierContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void exitTypeSpecifier(WeakJavaParser.TypeSpecifierContext ctx) {
+        
 
     }
 
     @Override
-    public void enterDeclaration(DeclarationContext ctx) {
+    public void enterDeclaration(WeakJavaParser.DeclarationContext ctx) {
         if (DFLAG) System.out.println(">declaration");
         String varName = ctx.Identifier().getText();
+        String ttype = ctx.typeSpecifier().getText();
         VarScope scope = scopes.peek();
-        scope.add(varName);
+        scope.put(varName, new LocalVar(varName,ttype));
     }
 
     @Override
-    public void exitDeclaration(DeclarationContext ctx) {
+    public void exitDeclaration(WeakJavaParser.DeclarationContext ctx) {
         if (DFLAG) System.out.println("<declaration");
 
     }
 
     @Override
-    public void enterStatement(StatementContext ctx) {
+    public void enterStatement(WeakJavaParser.StatementContext ctx) {
         if (DFLAG) System.out.println(">statement");
     }
 
     @Override
-    public void exitStatement(StatementContext ctx) {
+    public void exitStatement(WeakJavaParser.StatementContext ctx) {
         if (DFLAG) System.out.println("<statement");
 
     }
 
     @Override
-    public void enterLexp(LexpContext ctx) {
+    public void enterLexp(WeakJavaParser.LexpContext ctx) {
         if (DFLAG) System.out.println(">lexp");
     }
 
     @Override
-    public void exitLexp(LexpContext ctx) {
+    public void exitLexp(WeakJavaParser.LexpContext ctx) {
         if (DFLAG) System.out.println("<lexp");
         String vart = ctx.getText();
+
         if (checkVarName(vart)) {
             emitI("LD", xarg0, vart);
             emitI("PUSH", xarg0);
@@ -297,12 +278,12 @@ public class WJListener implements WeakJavaListener {
     }
 
     @Override
-    public void enterExp(ExpContext ctx) {
+    public void enterExpr(WeakJavaParser.ExprContext ctx) {
         if (DFLAG) System.out.println(">exp");
     }
 
     @Override
-    public void exitExp(ExpContext ctx) {
+    public void exitExpr(WeakJavaParser.ExprContext ctx) {
         if (DFLAG) System.out.println("<exp");
         String foo = ctx.getText();
         this.emitI("LDI", xarg0, foo);
@@ -311,48 +292,70 @@ public class WJListener implements WeakJavaListener {
     }
 
     @Override
-    public void enterBinop(BinopContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void enterBinaryOp(WeakJavaParser.BinaryOpContext ctx) {
+        
 
     }
 
     @Override
-    public void exitBinop(BinopContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void exitBinaryOp(WeakJavaParser.BinaryOpContext ctx) {
+        
 
     }
 
     @Override
-    public void enterUnop(UnopContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void enterRelationOp(WeakJavaParser.RelationOpContext ctx) {
+        
 
     }
 
     @Override
-    public void exitUnop(UnopContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void exitRelationOp(WeakJavaParser.RelationOpContext ctx) {
+        
 
     }
 
     @Override
-    public void enterPars(ParsContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void enterUnop(WeakJavaParser.UnopContext ctx) {
+        
 
     }
 
     @Override
-    public void exitPars(ParsContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void exitUnop(WeakJavaParser.UnopContext ctx) {
+        
 
     }
 
     @Override
-    public void enterAssignStatement(AssignStatementContext ctx) {
+    public void enterPars(WeakJavaParser.ParsContext ctx) {
+        
+
+    }
+
+    @Override
+    public void exitPars(WeakJavaParser.ParsContext ctx) {
+        
+
+    }
+
+    @Override
+    public void enterBoolValue(WeakJavaParser.BoolValueContext ctx) {
+        if (DFLAG) System.out.println(">boolvalue");
+    }
+
+    @Override
+    public void exitBoolValue(WeakJavaParser.BoolValueContext ctx) {
+        if (DFLAG) System.out.println("<boolvalue>");
+    }
+
+    @Override
+    public void enterAssignStatement(WeakJavaParser.AssignStatementContext ctx) {
         if (DFLAG) System.out.println(">assignment");
     }
 
     @Override
-    public void exitAssignStatement(AssignStatementContext ctx) {
+    public void exitAssignStatement(WeakJavaParser.AssignStatementContext ctx) {
         if (DFLAG) System.out.println("<assignment");
         emitI("POP", xarg1);
         emitI("POP", xarg2);
@@ -361,26 +364,26 @@ public class WJListener implements WeakJavaListener {
     }
 
     @Override
-    public void enterReturnStatement(ReturnStatementContext ctx) {
+    public void enterReturnStatement(WeakJavaParser.ReturnStatementContext ctx) {
         if (DFLAG) System.out.println(">return");
 
     }
 
     @Override
-    public void exitReturnStatement(ReturnStatementContext ctx) {
+    public void exitReturnStatement(WeakJavaParser.ReturnStatementContext ctx) {
         if (DFLAG) System.out.println("<return");
 
     }
 
     @Override
-    public void enterFunctionCall(FunctionCallContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void enterFunctionCall(WeakJavaParser.FunctionCallContext ctx) {
+        
 
     }
 
     @Override
-    public void exitFunctionCall(FunctionCallContext ctx) {
-        if (DFLAG) System.out.print("");
+    public void exitFunctionCall(WeakJavaParser.FunctionCallContext ctx) {
+        
 
     }
 
