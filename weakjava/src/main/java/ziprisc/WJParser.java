@@ -8,6 +8,7 @@ import ziprisc.zas.Instruction;
 import ziprisc.zas.Label;
 import ziprisc.zas.Program;
 
+
 public class WJParser extends Parser {
 
     public WJParser(TokenStream input) {
@@ -20,8 +21,8 @@ public class WJParser extends Parser {
             TokenStream tokens = new CommonTokenStream(lexer);
             WeakJavaParser parser = new WeakJavaParser(tokens);
 
-            ProgramVisitor programVisitor = new ProgramVisitor();
-            Program traverseResult = programVisitor.visit(parser.program());
+            WJVisitor visitor = new WJVisitor();
+            Program traverseResult = visitor.visit(parser.program());
             return traverseResult;
         }
 
@@ -72,6 +73,7 @@ private static class ProjectVisitor extends WeakJavaBaseVisitor<Program> {
         // preamble
         program.addAll(mainVisitor.visitMainFunction(ctx.mainFunction()));
         // add all functions defs
+
         // add postamble, pop result of return, and Halt
         program.add(new Label("_quit", ""));
         program.add(new Instruction("POP", "xFP"));
@@ -126,6 +128,7 @@ private static class ProjectVisitor extends WeakJavaBaseVisitor<Program> {
             return program;
         }
     }
+
     //    @Override public T visitReturnStatement(WeakJavaParser.ReturnStatementContext ctx) { return visitChildren(ctx); }
     private static class ReturnStatementVisitor extends WeakJavaBaseVisitor<Program> {
         public Program visitReturnStatement(WeakJavaParser.ReturnStatementContext ctx) {
