@@ -2,9 +2,7 @@ package ziprisc;
 
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import ziprisc.zas.Program;
+import ziprisc.zas.CodeList;
 
 
 /**
@@ -19,7 +17,7 @@ public class WeakJavaCompiler {
         WeakJavaLexer lexer = new WeakJavaLexer(CharStreams.fromString(wjContent));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         WJParser parser = new WJParser(tokens);
-        Program code = parser.parse(wjContent);
+        CodeList code = parser.parse(wjContent);
         code.emitAll();
 
     }

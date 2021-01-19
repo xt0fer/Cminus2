@@ -6,7 +6,7 @@ import org.antlr.v4.runtime.atn.ATN;
 import ziprisc.zas.Directive;
 import ziprisc.zas.Instruction;
 import ziprisc.zas.Label;
-import ziprisc.zas.Program;
+import ziprisc.zas.CodeList;
 
 
 public class WJParser extends Parser {
@@ -15,14 +15,14 @@ public class WJParser extends Parser {
         super(input);
     }
 
-    public Program parse(String sourceCode) {
+    public CodeList parse(String sourceCode) {
             WeakJavaLexer lexer = new WeakJavaLexer(CharStreams.fromString(sourceCode));
             TokenStream tokens = new CommonTokenStream(lexer);
             WeakJavaParser parser = new WeakJavaParser(tokens);
 
             WJVisitor visitor = new WJVisitor();
-            Program traverseResult = visitor.visit(parser.program());
-            return traverseResult;
+            CodeList code = visitor.visitProgram(parser.program());
+            return code;
         }
 
     @Override
@@ -45,12 +45,12 @@ public class WJParser extends Parser {
         return null;
     }
 
-    private static class ProgramVisitor extends WeakJavaBaseVisitor<Program> {
+    private static class ProgramVisitor extends WeakJavaBaseVisitor<CodeList> {
             @Override
-            public Program visitProgram(WeakJavaParser.ProgramContext ctx) {
+            public CodeList visitProgram(WeakJavaParser.ProgramContext ctx) {
                 //String className = ctx.className().getText();
                 ProjectVisitor projectVisitor = new ProjectVisitor();
-                Program program = new Program();
+                CodeList program = new CodeList();
 //                List<Method> methods = ctx.method()
 //                        .stream()
 //                        .map(method -> method.accept(methodVisitor))
@@ -60,10 +60,10 @@ public class WJParser extends Parser {
             }
         }
 //    @Override public T visitProgram(WeakJavaParser.ProgramContext ctx) { return visitChildren(ctx); }
-private static class ProjectVisitor extends WeakJavaBaseVisitor<Program> {
+private static class ProjectVisitor extends WeakJavaBaseVisitor<CodeList> {
     @Override
-    public Program visitProject(WeakJavaParser.ProjectContext ctx) {
-        Program program = new Program();
+    public CodeList visitProject(WeakJavaParser.ProjectContext ctx) {
+        CodeList program = new CodeList();
         MainFunctionVisitor mainVisitor = new MainFunctionVisitor();
         program.add(new Directive(".OR", "0x0000"));
 
@@ -112,16 +112,16 @@ private static class ProjectVisitor extends WeakJavaBaseVisitor<Program> {
 //    @Override public T visitPars(WeakJavaParser.ParsContext ctx) { return visitChildren(ctx); }
 //    @Override public T visitBoolValue(WeakJavaParser.BoolValueContext ctx) { return visitChildren(ctx); }
 
-    private static class MainFunctionVisitor extends WeakJavaBaseVisitor<Program> {
+    private static class MainFunctionVisitor extends WeakJavaBaseVisitor<CodeList> {
         @Override
-        public Program visitMainFunction(WeakJavaParser.MainFunctionContext ctx) {
+        public CodeList visitMainFunction(WeakJavaParser.MainFunctionContext ctx) {
 //            String methodName = ctx.methodName().getText();
 //            InstructionVisitor instructionVisitor = new InstructionVisitor();
 //            List<Instruction> instructions = ctx.instruction()
 //                    .stream()
 //                    .map(instruction -> instruction.accept(instructionVisitor))
 //                    .collect(toList());
-            Program program = new Program();
+            CodeList program = new CodeList();
             // add all mainFunction contents
             program.add(new Instruction("MOVI", "xFP", "0"));
             return program;
@@ -129,8 +129,8 @@ private static class ProjectVisitor extends WeakJavaBaseVisitor<Program> {
     }
 
     //    @Override public T visitReturnStatement(WeakJavaParser.ReturnStatementContext ctx) { return visitChildren(ctx); }
-    private static class ReturnStatementVisitor extends WeakJavaBaseVisitor<Program> {
-        public Program visitReturnStatement(WeakJavaParser.ReturnStatementContext ctx) {
+    private static class ReturnStatementVisitor extends WeakJavaBaseVisitor<CodeList> {
+        public CodeList visitReturnStatement(WeakJavaParser.ReturnStatementContext ctx) {
             return visitChildren(ctx);
         }
     }

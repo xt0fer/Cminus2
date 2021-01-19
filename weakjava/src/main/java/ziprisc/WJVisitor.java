@@ -1,156 +1,192 @@
 package ziprisc;
 
-import antlr4.ziprisc.WeakJavaVisitor;
+//import antlr4.ziprisc.WeakJavaVisitor;
 
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.RuleNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import ziprisc.zas.CodeList;
+import ziprisc.zas.Directive;
+import ziprisc.zas.Instruction;
+import ziprisc.zas.Label;
 
-import antlr4.ziprisc.WeakJavaParser;
+//import antlr4.ziprisc.WeakJavaParser;
 
-public class WJVisitor implements WeakJavaVisitor<Program> {
+import static ziprisc.WeakJavaParser.*;
+
+public class WJVisitor implements WeakJavaVisitor<CodeList> {
 
 	@Override
-	public Program visitProgram(WeakJavaParser.ProgramContext ctx) {
+	public CodeList visitProgram(ProgramContext ctx) {
+		CodeList program = new CodeList();
+		program.addAll(this.visitProject(ctx.project()));
+		return program;
+	}
+
+	@Override
+	public CodeList visitProject(ProjectContext ctx) {
+		CodeList program = new CodeList();
+		program.add(new Directive(".OR", "0x0000"));
+
+		program.add(new Instruction("BRA", "_stackbase"));
+		program.add(new Label("_main", ""));
+		// preamble
+		program.addAll(visitMainFunction(ctx.mainFunction()));
+		// add all functions defs
+
+		// add postamble, pop result of return, and Halt
+		program.add(new Label("_quit", ""));
+		program.add(new Instruction("POP", "xFP"));
+		program.add(new Instruction("OUT", "xFP"));
+		program.add(new Instruction("HLT", ""));
+		program.add(new Directive(".OR", "0x7000"));
+		program.add(new Label("_stackbase", ""));
+		program.add(new Instruction("MOVI", "xFP", "_stackbase"));
+		program.add(new Instruction("MOVI", "xSP", "_stackbase"));
+		program.add(new Instruction("CALL", "_main"));
+		program.add(new Instruction("BRA", "_quit"));
+
+		return program;
+
+		//return visitChildren(ctx);
+	}
+
+	@Override
+	public CodeList visitFunctionList(FunctionListContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitProject(WeakJavaParser.ProjectContext ctx) {
+	public CodeList visitMainFunction(MainFunctionContext ctx) {
+		CodeList program = new CodeList();
+		// add all mainFunction contents
+		program.add(new Instruction("MOVI", "xFP", "0"));
+		return program;
+
+		//return visitChildren(ctx);
+	}
+
+	@Override
+	public CodeList visitFunctionDefinition(FunctionDefinitionContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitFunctionList(WeakJavaParser.FunctionListContext ctx) {
+	public CodeList visitStatementList(StatementListContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitMainFunction(WeakJavaParser.MainFunctionContext ctx) {
+	public CodeList visitDeclarationList(DeclarationListContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitFunctionDefinition(WeakJavaParser.FunctionDefinitionContext ctx) {
+	public CodeList visitVariable(VariableContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitStatementList(WeakJavaParser.StatementListContext ctx) {
+	public CodeList visitCompoundStatement(CompoundStatementContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitDeclarationList(WeakJavaParser.DeclarationListContext ctx) {
+	public CodeList visitIfStatement(IfStatementContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitVariable(WeakJavaParser.VariableContext ctx) {
+	public CodeList visitWhileStatement(WhileStatementContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitCompoundStatement(WeakJavaParser.CompoundStatementContext ctx) {
+	public CodeList visitAssignStatement(AssignStatementContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitIfStatement(WeakJavaParser.IfStatementContext ctx) {
+	public CodeList visitReturnStatement(ReturnStatementContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitWhileStatement(WeakJavaParser.WhileStatementContext ctx) {
+	public CodeList visitFunctionCall(FunctionCallContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitAssignStatement(WeakJavaParser.AssignStatementContext ctx) {
+	public CodeList visitTypeSpecifier(TypeSpecifierContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitReturnStatement(WeakJavaParser.ReturnStatementContext ctx) {
+	public CodeList visitDeclaration(DeclarationContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitFunctionCall(WeakJavaParser.FunctionCallContext ctx) {
+	public CodeList visitStatement(StatementContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitTypeSpecifier(WeakJavaParser.TypeSpecifierContext ctx) {
+	public CodeList visitLexp(LexpContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitDeclaration(WeakJavaParser.DeclarationContext ctx) {
+	public CodeList visitExpr(ExprContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitStatement(WeakJavaParser.StatementContext ctx) {
+	public CodeList visitBinaryOp(BinaryOpContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitLexp(WeakJavaParser.LexpContext ctx) {
+	public CodeList visitRelationOp(RelationOpContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitExpr(WeakJavaParser.ExprContext ctx) {
+	public CodeList visitUnop(UnopContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitBinaryOp(WeakJavaParser.BinaryOpContext ctx) {
+	public CodeList visitPars(ParsContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitRelationOp(WeakJavaParser.RelationOpContext ctx) {
+	public CodeList visitBoolValue(BoolValueContext ctx) {
 		return visitChildren(ctx);
 	}
 
 	@Override
-	public Program visitUnop(WeakJavaParser.UnopContext ctx) {
-		return visitChildren(ctx);
-	}
-
-	@Override
-	public Program visitPars(WeakJavaParser.ParsContext ctx) {
-		return visitChildren(ctx);
-	}
-
-	@Override
-	public Program visitBoolValue(WeakJavaParser.BoolValueContext ctx) {
-		return visitChildren(ctx);
-	}
-
-	@Override
-	public Program visit(ParseTree arg0) {
+	public CodeList visit(ParseTree arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Program visitChildren(RuleNode arg0) {
+	public CodeList visitChildren(RuleNode arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Program visitErrorNode(ErrorNode arg0) {
+	public CodeList visitErrorNode(ErrorNode arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Program visitTerminal(TerminalNode arg0) {
+	public CodeList visitTerminal(TerminalNode arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
