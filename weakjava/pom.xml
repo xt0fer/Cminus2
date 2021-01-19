@@ -30,6 +30,12 @@
       <artifactId>antlr4-runtime</artifactId>
       <version>4.9.1</version>
     </dependency>
+    <dependency>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>mojo-parent</artifactId>
+  <version>40</version>
+  <type>pom</type>
+</dependency>
   </dependencies>
 
   <build>
@@ -84,6 +90,25 @@
           <source>8</source>
           <target>8</target>
         </configuration>
+      </plugin>
+        <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/main/antlr4</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

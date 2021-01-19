@@ -18,11 +18,6 @@ public class WeakJavaCompiler {
         String wjContent = WeakJavaCompiler.PROGRAM;
         WeakJavaLexer lexer = new WeakJavaLexer(CharStreams.fromString(wjContent));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-//        WeakJavaParser parser = new WeakJavaParser(tokens);
-//        ParseTree tree = parser.program();
-//        ParseTreeWalker walker = new ParseTreeWalker();
-//        WJListener listener = new WJListener();
-//        walker.walk(listener, tree);
         WJParser parser = new WJParser(tokens);
         Program code = parser.parse(wjContent);
         code.emitAll();

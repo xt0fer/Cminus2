@@ -16,8 +16,7 @@ public class WJParser extends Parser {
     }
 
     public Program parse(String sourceCode) {
-            CharStream charStream = new ANTLRInputStream(sourceCode);
-            WeakJavaLexer lexer = new WeakJavaLexer(charStream);
+            WeakJavaLexer lexer = new WeakJavaLexer(CharStreams.fromString(sourceCode));
             TokenStream tokens = new CommonTokenStream(lexer);
             WeakJavaParser parser = new WeakJavaParser(tokens);
 
