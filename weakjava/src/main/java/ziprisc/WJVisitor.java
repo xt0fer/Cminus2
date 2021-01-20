@@ -34,7 +34,7 @@ public class WJVisitor implements WeakJavaVisitor<CodeList> {
 		// preamble
 		program.addAll(visitMainFunction(ctx.mainFunction()));
 		// add all functions defs
-
+		program.addAll(visitFunctionList(ctx.functionList()));
 		// add postamble, pop result of return, and Halt
 		program.add(new Label("_quit", ""));
 		program.add(new Instruction("POP", "xFP"));
@@ -42,8 +42,9 @@ public class WJVisitor implements WeakJavaVisitor<CodeList> {
 		program.add(new Instruction("HLT", ""));
 		program.add(new Directive(".OR", "0x7000"));
 		program.add(new Label("_stackbase", ""));
-		program.add(new Instruction("MOVI", "xFP", "_stackbase"));
-		program.add(new Instruction("MOVI", "xSP", "_stackbase"));
+		program.add(new Instruction("LDI", "x5", "_stackbase"));
+		program.add(new Instruction("MOV", "xFP", "x5"));
+		program.add(new Instruction("MOV", "xSP", "x5"));
 		program.add(new Instruction("CALL", "_main"));
 		program.add(new Instruction("BRA", "_quit"));
 
@@ -61,7 +62,7 @@ public class WJVisitor implements WeakJavaVisitor<CodeList> {
 	public CodeList visitMainFunction(MainFunctionContext ctx) {
 		CodeList program = new CodeList();
 		// add all mainFunction contents
-		program.add(new Instruction("MOVI", "xFP", "0"));
+		program.add(new Instruction("ADDI", "xFP","x0", "0"));
 		return program;
 
 		//return visitChildren(ctx);
@@ -170,25 +171,25 @@ public class WJVisitor implements WeakJavaVisitor<CodeList> {
 	@Override
 	public CodeList visit(ParseTree arg0) {
 		// TODO Auto-generated method stub
-		return null;
+		return new CodeList();
 	}
 
 	@Override
 	public CodeList visitChildren(RuleNode arg0) {
 		// TODO Auto-generated method stub
-		return null;
+		return new CodeList();
 	}
 
 	@Override
 	public CodeList visitErrorNode(ErrorNode arg0) {
 		// TODO Auto-generated method stub
-		return null;
+		return new CodeList();
 	}
 
 	@Override
 	public CodeList visitTerminal(TerminalNode arg0) {
 		// TODO Auto-generated method stub
-		return null;
+		return new CodeList();
 	}
 
 }
